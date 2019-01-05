@@ -1,2 +1,2 @@
 # gRPC-Training
-C# / React-Native / gRPC Training
+C# / React (Electron) / gRPC Training
