@@ -1,0 +1,6 @@
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.csprojAssemblyReference.cache
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.csproj.CoreCompileInputs.cache
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.RazorAssemblyInfo.cache
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.RazorAssemblyInfo.cs
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.AssemblyInfoInputs.cache
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.AssemblyInfo.cs
