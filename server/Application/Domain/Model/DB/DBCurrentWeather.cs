@@ -2,11 +2,11 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using Remote;
+//    using DB;
 //
-//    var currentWeather = CurrentWeather.FromJson(jsonString);
+//    var dbCurrentWeather = DbCurrentWeather.FromJson(jsonString);
 
-namespace Remote
+namespace DB
 {
     using System;
     using System.Collections.Generic;
@@ -15,13 +15,13 @@ namespace Remote
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class CurrentWeather
+    public partial class DbCurrentWeather
     {
         [JsonProperty("coord")]
         public Coord Coord { get; set; }
 
         [JsonProperty("weather")]
-        public Weather[] Weather { get; set; }
+        public Weather2[] Weather { get; set; }
 
         [JsonProperty("base")]
         public string Base { get; set; }
@@ -108,7 +108,7 @@ namespace Remote
         public long Sunset { get; set; }
     }
 
-    public partial class Weather
+    public partial class Weather2
     {
         [JsonProperty("id")]
         public long Id { get; set; }
@@ -132,14 +132,14 @@ namespace Remote
         public long Deg { get; set; }
     }
 
-    public partial class CurrentWeather
+    public partial class DbCurrentWeather
     {
-        public static CurrentWeather FromJson(string json) => JsonConvert.DeserializeObject<CurrentWeather>(json, Remote.Converter.Settings);
+        public static DbCurrentWeather FromJson(string json) => JsonConvert.DeserializeObject<DbCurrentWeather>(json, DB.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this CurrentWeather self) => JsonConvert.SerializeObject(self, Remote.Converter.Settings);
+        public static string ToJson(this DbCurrentWeather self) => JsonConvert.SerializeObject(self, DB.Converter.Settings);
     }
 
     internal static class Converter

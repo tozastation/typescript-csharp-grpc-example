@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Remote;
+using DB;
 
 namespace Repositories
 {
     public interface IWeatherRepository
     {
-        List<CurrentWeather> FindCurrentWeatherByCityName(string CityName);
+        List<DbCurrentWeather> FindCurrentWeatherByCityName(string CityName);
     }
 }

@@ -12753,13 +12753,13 @@
       "projectName": "server",
       "projectPath": "/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/server.csproj",
       "packagesPath": "/Users/tozastation/.nuget/packages/",
-      "outputPath": "/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj",
+      "outputPath": "/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/tozastation/.config/NuGet/NuGet.Config"
+        "/Users/tozastation/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
@@ -12806,7 +12806,8 @@
           "Microsoft.AspNetCore.App": {
             "suppressParent": "None",
             "target": "Package",
-            "version": "[2.2.0-preview3-35497, )"
+            "version": "[2.2.0-preview3-35497, )",
+            "autoReferenced": true
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",

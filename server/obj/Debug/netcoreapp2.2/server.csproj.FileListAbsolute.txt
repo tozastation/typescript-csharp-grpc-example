@@ -4,3 +4,11 @@
 /Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.RazorAssemblyInfo.cs
 /Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.AssemblyInfoInputs.cache
 /Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.AssemblyInfo.cs
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/bin/Debug/netcoreapp2.2/server.deps.json
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/bin/Debug/netcoreapp2.2/server.runtimeconfig.json
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/bin/Debug/netcoreapp2.2/server.runtimeconfig.dev.json
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/bin/Debug/netcoreapp2.2/server.dll
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/bin/Debug/netcoreapp2.2/server.pdb
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.RazorTargetAssemblyInfo.cache
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.dll
+/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/Debug/netcoreapp2.2/server.pdb

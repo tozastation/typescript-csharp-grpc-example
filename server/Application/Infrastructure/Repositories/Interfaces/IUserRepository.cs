@@ -1,11 +1,12 @@
 using System.Collections.Generic;
-using Remote;
+using DB;
+using Proto.User;
 
 namespace Repositories
 {
     public interface IUserRepository
     {
-        List<User> FindUserByUserToken(string token);
+        List<DbUser> FindUserByUserToken(string token);
         string CreateUser(User user);
     }
 }

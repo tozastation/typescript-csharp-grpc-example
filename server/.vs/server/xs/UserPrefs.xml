@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{3D016C95-18DF-4F40-9FA5-A904D75BF14A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application/Domain/Service/Interface/IWeatherService.cs">
+    <Files>
+      <File FileName="Application/Infrastructure/SqlHander.cs" Line="1" Column="1" />
+      <File FileName="Application/Domain/Service/WeatherService.cs" Line="34" Column="1" />
+      <File FileName="Application/Domain/Service/Interface/IWeatherService.cs" Line="1" Column="1" />
+      <File FileName="Application/Domain/Model/Proto/Weather.cs" Line="1" Column="1" />
+      <File FileName="Application/Domain/Model/DB/DBCurrentWeather.cs" Line="24" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="server" expanded="True">
+            <Node name="server" expanded="True">
+              <Node name="Application" expanded="True">
+                <Node name="Domain" expanded="True">
+                  <Node name="Model" expanded="True">
+                    <Node name="DB" expanded="True" />
+                    <Node name="Proto" expanded="True" />
+                  </Node>
+                  <Node name="Service" expanded="True">
+                    <Node name="Interface" expanded="True">
+                      <Node name="IWeatherService.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+                <Node name="Infrastructure" expanded="True">
+                  <Node name="Repositories" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.server PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading.Tasks;
 using Application;
-using Remote;
+using DB;
+using Proto.User;
+
 namespace Repositories
 {
     public class UserRepository:IUserRepository
     {
 
-        public List<User> FindUserByUserToken(string token)
+        public List<DbUser> FindUserByUserToken(string token)
         {   
             using(var sqlConnection = Application.Program.sqlHandler.GetConnection())
             {
-                var userList = new List<User>();
+                var userList = new List<DbUser>();
                 sqlConnection.Open();
                 var command = new SqlCommand();
                 command.Connection = sqlConnection;
@@ -22,7 +24,7 @@ namespace Repositories
                 {
                     while (reader.Read() == true)
                     {
-                        userList.Add(new User()
+                        userList.Add(new DbUser()
                         {
                             LoginId = reader["LOGIN_ID"] as string,
                             Name = reader["Name"] as string,
@@ -39,7 +41,7 @@ namespace Repositories
         {   
             using(var sqlConnection = Application.Program.sqlHandler.GetConnection())
             {
-                var userList = new List<User>();
+                var userList = new List<DbUser>();
                 sqlConnection.Open();
                 var command = new SqlCommand();
                 command.Connection = sqlConnection;

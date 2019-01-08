@@ -1,6 +1,6 @@
-namespace Remote
+namespace DB
 {
-    public class User
+    public class DbUser
     {
         public string Name {get; set;}
 
