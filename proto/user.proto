@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto.user;
+
+service Users{
+    rpc Get (Request) returns (Response) {}
+    rpc Post (Request) returns (Response) {}
+}
+
+message User {
+    string UserID = 1;
+    string CityName = 2;
+    string Password = 3;
+    string Name = 4;
+}
+
+message Request {
+    int32 ID = 1;
+}
+
+message Response {
+    User User = 1;
+}
