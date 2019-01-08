@@ -7,11 +7,11 @@ service Weathers{
 }
 
 message Weather {
-    int32 ID = 1;
+    double ID = 1;
     string CityName = 2;
-    string TempMax = 3;
-    string TempMin = 4;
-    string Wind = 5;
+    double TempMax = 3;
+    double TempMin = 4;
+    double Wind = 5;
     string Type = 6;
     string Description = 7;
 }
