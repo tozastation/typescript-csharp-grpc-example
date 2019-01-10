@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mssql:
+      #image: microsoft/mssql-server-linux:latest
+      build: ./Docker/Mssql
+      container_name: mssql-server
+      ports:
+        - 1433:1433
+      environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=Test@1234
+        - MSSQL_PID=Express
+        - MSSQL_LCID=1041
+        - MSSQL_COLLATION=Japanese_CI_AS
