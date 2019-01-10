@@ -3,7 +3,7 @@ syntax = "proto3";
 package proto.weather;
 
 service Weathers{
-    rpc Get (Request) returns (Response) {}
+    rpc Get (GetRequest) returns (GetResponse) {}
 }
 
 message Weather {
@@ -16,10 +16,10 @@ message Weather {
     string Description = 7;
 }
 
-message Request {
-    int32 ID = 1;
+message GetRequest {
+    string CityName = 1;
 }
 
-message Response {
+message GetResponse {
     Weather Weather = 1;
 }

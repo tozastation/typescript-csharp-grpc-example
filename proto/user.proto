@@ -3,21 +3,39 @@ syntax = "proto3";
 package proto.user;
 
 service Users{
-    rpc Get (Request) returns (Response) {}
-    rpc Post (Request) returns (Response) {}
+    rpc Get (GetRequest) returns (GetResponse) {}
+    rpc Post (PostRequest) returns (PostResponse) {}
 }
 
-message User {
-    string UserID = 1;
+message PostUser {
+    // tozastation
+    string UserID = 1; 
+    // Hakodate
     string CityName = 2;
+    // test
     string Password = 3;
+    // RyoTozawa
     string Name = 4;
 }
 
-message Request {
-    int32 ID = 1;
+message GetUser {
+    string UserID = 1;
+    string CityName = 2;
+    string Name = 3;
 }
 
-message Response {
-    User User = 1;
+message GetRequest {
+    string Token = 1;
+}
+
+message GetResponse {
+    GetUser User = 1;
+}
+
+message PostRequest {
+    PostUser User = 1;
+}
+
+message PostResponse {
+    string Token = 1;
 }
