@@ -27,16 +27,17 @@ namespace Proto.Weather {
             "Cg13ZWF0aGVyLnByb3RvEg1wcm90by53ZWF0aGVyInoKB1dlYXRoZXISCgoC",
             "SUQYASABKAESEAoIQ2l0eU5hbWUYAiABKAkSDwoHVGVtcE1heBgDIAEoARIP",
             "CgdUZW1wTWluGAQgASgBEgwKBFdpbmQYBSABKAESDAoEVHlwZRgGIAEoCRIT",
-            "CgtEZXNjcmlwdGlvbhgHIAEoCSIVCgdSZXF1ZXN0EgoKAklEGAEgASgFIjMK",
-            "CFJlc3BvbnNlEicKB1dlYXRoZXIYASABKAsyFi5wcm90by53ZWF0aGVyLldl",
-            "YXRoZXIyRAoIV2VhdGhlcnMSOAoDR2V0EhYucHJvdG8ud2VhdGhlci5SZXF1",
-            "ZXN0GhcucHJvdG8ud2VhdGhlci5SZXNwb25zZSIAYgZwcm90bzM="));
+            "CgtEZXNjcmlwdGlvbhgHIAEoCSIeCgpHZXRSZXF1ZXN0EhAKCENpdHlOYW1l",
+            "GAEgASgJIjYKC0dldFJlc3BvbnNlEicKB1dlYXRoZXIYASABKAsyFi5wcm90",
+            "by53ZWF0aGVyLldlYXRoZXIySgoIV2VhdGhlcnMSPgoDR2V0EhkucHJvdG8u",
+            "d2VhdGhlci5HZXRSZXF1ZXN0GhoucHJvdG8ud2VhdGhlci5HZXRSZXNwb25z",
+            "ZSIAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Weather.Weather), global::Proto.Weather.Weather.Parser, new[]{ "ID", "CityName", "TempMax", "TempMin", "Wind", "Type", "Description" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Weather.Request), global::Proto.Weather.Request.Parser, new[]{ "ID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Weather.Response), global::Proto.Weather.Response.Parser, new[]{ "Weather" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Weather.GetRequest), global::Proto.Weather.GetRequest.Parser, new[]{ "CityName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Weather.GetResponse), global::Proto.Weather.GetResponse.Parser, new[]{ "Weather" }, null, null, null)
           }));
     }
     #endregion
@@ -340,11 +341,11 @@ namespace Proto.Weather {
 
   }
 
-  public sealed partial class Request : pb::IMessage<Request> {
-    private static readonly pb::MessageParser<Request> _parser = new pb::MessageParser<Request>(() => new Request());
+  public sealed partial class GetRequest : pb::IMessage<GetRequest> {
+    private static readonly pb::MessageParser<GetRequest> _parser = new pb::MessageParser<GetRequest>(() => new GetRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Request> Parser { get { return _parser; } }
+    public static pb::MessageParser<GetRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -357,55 +358,55 @@ namespace Proto.Weather {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Request() {
+    public GetRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Request(Request other) : this() {
-      iD_ = other.iD_;
+    public GetRequest(GetRequest other) : this() {
+      cityName_ = other.cityName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Request Clone() {
-      return new Request(this);
+    public GetRequest Clone() {
+      return new GetRequest(this);
     }
 
-    /// <summary>Field number for the "ID" field.</summary>
-    public const int IDFieldNumber = 1;
-    private int iD_;
+    /// <summary>Field number for the "CityName" field.</summary>
+    public const int CityNameFieldNumber = 1;
+    private string cityName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int ID {
-      get { return iD_; }
+    public string CityName {
+      get { return cityName_; }
       set {
-        iD_ = value;
+        cityName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Request);
+      return Equals(other as GetRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Request other) {
+    public bool Equals(GetRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (ID != other.ID) return false;
+      if (CityName != other.CityName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (ID != 0) hash ^= ID.GetHashCode();
+      if (CityName.Length != 0) hash ^= CityName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -419,9 +420,9 @@ namespace Proto.Weather {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (ID != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(ID);
+      if (CityName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CityName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -431,8 +432,8 @@ namespace Proto.Weather {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (ID != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ID);
+      if (CityName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CityName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -441,12 +442,12 @@ namespace Proto.Weather {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Request other) {
+    public void MergeFrom(GetRequest other) {
       if (other == null) {
         return;
       }
-      if (other.ID != 0) {
-        ID = other.ID;
+      if (other.CityName.Length != 0) {
+        CityName = other.CityName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -459,8 +460,8 @@ namespace Proto.Weather {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            ID = input.ReadInt32();
+          case 10: {
+            CityName = input.ReadString();
             break;
           }
         }
@@ -469,11 +470,11 @@ namespace Proto.Weather {
 
   }
 
-  public sealed partial class Response : pb::IMessage<Response> {
-    private static readonly pb::MessageParser<Response> _parser = new pb::MessageParser<Response>(() => new Response());
+  public sealed partial class GetResponse : pb::IMessage<GetResponse> {
+    private static readonly pb::MessageParser<GetResponse> _parser = new pb::MessageParser<GetResponse>(() => new GetResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Response> Parser { get { return _parser; } }
+    public static pb::MessageParser<GetResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -486,21 +487,21 @@ namespace Proto.Weather {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Response() {
+    public GetResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Response(Response other) : this() {
+    public GetResponse(GetResponse other) : this() {
       weather_ = other.weather_ != null ? other.weather_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Response Clone() {
-      return new Response(this);
+    public GetResponse Clone() {
+      return new GetResponse(this);
     }
 
     /// <summary>Field number for the "Weather" field.</summary>
@@ -516,11 +517,11 @@ namespace Proto.Weather {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Response);
+      return Equals(other as GetResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Response other) {
+    public bool Equals(GetResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -570,7 +571,7 @@ namespace Proto.Weather {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Response other) {
+    public void MergeFrom(GetResponse other) {
       if (other == null) {
         return;
       }

@@ -13,13 +13,13 @@ namespace Service
             _userRepository = new UserRepository();
         }
         
-        public List<User> FindUserByUserToken(string token)
+        public List<GetUser> FindUserByUserToken(string token)
         {
             List<DbUser> dbUserList = _userRepository.FindUserByUserToken(token);
-            var userList = new List<User>();
+            var userList = new List<GetUser>();
             foreach (DbUser a in dbUserList)
             {
-               var user = new User();
+               var user = new GetUser();
                user.UserID = a.LoginId;
                user.Name = a.Name;
                //user.Password = a.Password;
@@ -29,7 +29,7 @@ namespace Service
             return userList;
         }
 
-        public string CreateUser(User user)
+        public string CreateUser(PostUser user)
         {
             string token = _userRepository.CreateUser(user);
             return token;

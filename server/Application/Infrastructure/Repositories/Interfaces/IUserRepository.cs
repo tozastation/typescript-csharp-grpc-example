@@ -7,6 +7,6 @@ namespace Repositories
     public interface IUserRepository
     {
         List<DbUser> FindUserByUserToken(string token);
-        string CreateUser(User user);
+        string CreateUser(PostUser user);
     }
 }

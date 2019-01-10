@@ -37,7 +37,7 @@ namespace Repositories
             }
         }
 
-        public string CreateUser(User user)
+        public string CreateUser(PostUser user)
         {   
             using(var sqlConnection = Application.Program.sqlHandler.GetConnection())
             {

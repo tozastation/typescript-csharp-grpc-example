@@ -12,15 +12,15 @@ namespace Proto.Weather {
   {
     static readonly string __ServiceName = "proto.weather.Weathers";
 
-    static readonly grpc::Marshaller<global::Proto.Weather.Request> __Marshaller_proto_weather_Request = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.Weather.Request.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Proto.Weather.Response> __Marshaller_proto_weather_Response = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.Weather.Response.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Proto.Weather.GetRequest> __Marshaller_proto_weather_GetRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.Weather.GetRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Proto.Weather.GetResponse> __Marshaller_proto_weather_GetResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.Weather.GetResponse.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Proto.Weather.Request, global::Proto.Weather.Response> __Method_Get = new grpc::Method<global::Proto.Weather.Request, global::Proto.Weather.Response>(
+    static readonly grpc::Method<global::Proto.Weather.GetRequest, global::Proto.Weather.GetResponse> __Method_Get = new grpc::Method<global::Proto.Weather.GetRequest, global::Proto.Weather.GetResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Get",
-        __Marshaller_proto_weather_Request,
-        __Marshaller_proto_weather_Response);
+        __Marshaller_proto_weather_GetRequest,
+        __Marshaller_proto_weather_GetResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -31,7 +31,7 @@ namespace Proto.Weather {
     /// <summary>Base class for server-side implementations of Weathers</summary>
     public abstract partial class WeathersBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Proto.Weather.Response> Get(global::Proto.Weather.Request request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Proto.Weather.GetResponse> Get(global::Proto.Weather.GetRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -61,19 +61,19 @@ namespace Proto.Weather {
       {
       }
 
-      public virtual global::Proto.Weather.Response Get(global::Proto.Weather.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Proto.Weather.GetResponse Get(global::Proto.Weather.GetRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Get(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Proto.Weather.Response Get(global::Proto.Weather.Request request, grpc::CallOptions options)
+      public virtual global::Proto.Weather.GetResponse Get(global::Proto.Weather.GetRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Proto.Weather.Response> GetAsync(global::Proto.Weather.Request request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Proto.Weather.GetResponse> GetAsync(global::Proto.Weather.GetRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Proto.Weather.Response> GetAsync(global::Proto.Weather.Request request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Proto.Weather.GetResponse> GetAsync(global::Proto.Weather.GetRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
