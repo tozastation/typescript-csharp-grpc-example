@@ -12,14 +12,14 @@ export class Weather extends jspb.Message {
     getCityname(): string;
     setCityname(value: string): void;
 
-    getTempmax(): string;
-    setTempmax(value: string): void;
+    getTempmax(): number;
+    setTempmax(value: number): void;
 
-    getTempmin(): string;
-    setTempmin(value: string): void;
+    getTempmin(): number;
+    setTempmin(value: number): void;
 
-    getWind(): string;
-    setWind(value: string): void;
+    getWind(): number;
+    setWind(value: number): void;
 
     getType(): string;
     setType(value: string): void;
@@ -42,36 +42,36 @@ export namespace Weather {
     export type AsObject = {
         id: number,
         cityname: string,
-        tempmax: string,
-        tempmin: string,
-        wind: string,
+        tempmax: number,
+        tempmin: number,
+        wind: number,
         type: string,
         description: string,
     }
 }
 
-export class Request extends jspb.Message { 
-    getId(): number;
-    setId(value: number): void;
+export class GetRequest extends jspb.Message { 
+    getCityname(): string;
+    setCityname(value: string): void;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Request.AsObject;
-    static toObject(includeInstance: boolean, msg: Request): Request.AsObject;
+    toObject(includeInstance?: boolean): GetRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetRequest): GetRequest.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Request, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Request;
-    static deserializeBinaryFromReader(message: Request, reader: jspb.BinaryReader): Request;
+    static serializeBinaryToWriter(message: GetRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetRequest;
+    static deserializeBinaryFromReader(message: GetRequest, reader: jspb.BinaryReader): GetRequest;
 }
 
-export namespace Request {
+export namespace GetRequest {
     export type AsObject = {
-        id: number,
+        cityname: string,
     }
 }
 
-export class Response extends jspb.Message { 
+export class GetResponse extends jspb.Message { 
 
     hasWeather(): boolean;
     clearWeather(): void;
@@ -80,16 +80,16 @@ export class Response extends jspb.Message {
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Response.AsObject;
-    static toObject(includeInstance: boolean, msg: Response): Response.AsObject;
+    toObject(includeInstance?: boolean): GetResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetResponse): GetResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Response, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Response;
-    static deserializeBinaryFromReader(message: Response, reader: jspb.BinaryReader): Response;
+    static serializeBinaryToWriter(message: GetResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetResponse;
+    static deserializeBinaryFromReader(message: GetResponse, reader: jspb.BinaryReader): GetResponse;
 }
 
-export namespace Response {
+export namespace GetResponse {
     export type AsObject = {
         weather?: Weather.AsObject,
     }

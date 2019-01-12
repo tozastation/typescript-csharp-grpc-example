@@ -6,13 +6,13 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
-/* tslint:disable */
+
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-goog.exportSymbol('proto.proto.weather.Request', null, global);
-goog.exportSymbol('proto.proto.weather.Response', null, global);
+goog.exportSymbol('proto.proto.weather.GetRequest', null, global);
+goog.exportSymbol('proto.proto.weather.GetResponse', null, global);
 goog.exportSymbol('proto.proto.weather.Weather', null, global);
 
 /**
@@ -61,11 +61,11 @@ proto.proto.weather.Weather.prototype.toObject = function(opt_includeInstance) {
  */
 proto.proto.weather.Weather.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    id: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
     cityname: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    tempmax: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    tempmin: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    wind: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    tempmax: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    tempmin: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
+    wind: +jspb.Message.getFieldWithDefault(msg, 5, 0.0),
     type: jspb.Message.getFieldWithDefault(msg, 6, ""),
     description: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
@@ -105,7 +105,7 @@ proto.proto.weather.Weather.deserializeBinaryFromReader = function(msg, reader) 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setId(value);
       break;
     case 2:
@@ -113,15 +113,15 @@ proto.proto.weather.Weather.deserializeBinaryFromReader = function(msg, reader) 
       msg.setCityname(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setTempmax(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setTempmin(value);
       break;
     case 5:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readDouble());
       msg.setWind(value);
       break;
     case 6:
@@ -162,8 +162,8 @@ proto.proto.weather.Weather.prototype.serializeBinary = function() {
 proto.proto.weather.Weather.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f !== 0.0) {
+    writer.writeDouble(
       1,
       f
     );
@@ -176,22 +176,22 @@ proto.proto.weather.Weather.serializeBinaryToWriter = function(message, writer) 
     );
   }
   f = message.getTempmax();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0.0) {
+    writer.writeDouble(
       3,
       f
     );
   }
   f = message.getTempmin();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0.0) {
+    writer.writeDouble(
       4,
       f
     );
   }
   f = message.getWind();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0.0) {
+    writer.writeDouble(
       5,
       f
     );
@@ -214,11 +214,11 @@ proto.proto.weather.Weather.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional int32 ID = 1;
+ * optional double ID = 1;
  * @return {number}
  */
 proto.proto.weather.Weather.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
 };
 
 
@@ -244,45 +244,45 @@ proto.proto.weather.Weather.prototype.setCityname = function(value) {
 
 
 /**
- * optional string TempMax = 3;
- * @return {string}
+ * optional double TempMax = 3;
+ * @return {number}
  */
 proto.proto.weather.Weather.prototype.getTempmax = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.proto.weather.Weather.prototype.setTempmax = function(value) {
   jspb.Message.setField(this, 3, value);
 };
 
 
 /**
- * optional string TempMin = 4;
- * @return {string}
+ * optional double TempMin = 4;
+ * @return {number}
  */
 proto.proto.weather.Weather.prototype.getTempmin = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.proto.weather.Weather.prototype.setTempmin = function(value) {
   jspb.Message.setField(this, 4, value);
 };
 
 
 /**
- * optional string Wind = 5;
- * @return {string}
+ * optional double Wind = 5;
+ * @return {number}
  */
 proto.proto.weather.Weather.prototype.getWind = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.proto.weather.Weather.prototype.setWind = function(value) {
   jspb.Message.setField(this, 5, value);
 };
@@ -329,12 +329,12 @@ proto.proto.weather.Weather.prototype.setDescription = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.proto.weather.Request = function(opt_data) {
+proto.proto.weather.GetRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.proto.weather.Request, jspb.Message);
+goog.inherits(proto.proto.weather.GetRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.proto.weather.Request.displayName = 'proto.proto.weather.Request';
+  proto.proto.weather.GetRequest.displayName = 'proto.proto.weather.GetRequest';
 }
 
 
@@ -349,8 +349,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.proto.weather.Request.prototype.toObject = function(opt_includeInstance) {
-  return proto.proto.weather.Request.toObject(opt_includeInstance, this);
+proto.proto.weather.GetRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.proto.weather.GetRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -359,13 +359,13 @@ proto.proto.weather.Request.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.proto.weather.Request} msg The msg instance to transform.
+ * @param {!proto.proto.weather.GetRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.proto.weather.Request.toObject = function(includeInstance, msg) {
+proto.proto.weather.GetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    cityname: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -379,23 +379,23 @@ proto.proto.weather.Request.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.proto.weather.Request}
+ * @return {!proto.proto.weather.GetRequest}
  */
-proto.proto.weather.Request.deserializeBinary = function(bytes) {
+proto.proto.weather.GetRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.proto.weather.Request;
-  return proto.proto.weather.Request.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.proto.weather.GetRequest;
+  return proto.proto.weather.GetRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.proto.weather.Request} msg The message object to deserialize into.
+ * @param {!proto.proto.weather.GetRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.proto.weather.Request}
+ * @return {!proto.proto.weather.GetRequest}
  */
-proto.proto.weather.Request.deserializeBinaryFromReader = function(msg, reader) {
+proto.proto.weather.GetRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -403,8 +403,8 @@ proto.proto.weather.Request.deserializeBinaryFromReader = function(msg, reader) 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setId(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCityname(value);
       break;
     default:
       reader.skipField();
@@ -419,9 +419,9 @@ proto.proto.weather.Request.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.proto.weather.Request.prototype.serializeBinary = function() {
+proto.proto.weather.GetRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.proto.weather.Request.serializeBinaryToWriter(this, writer);
+  proto.proto.weather.GetRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -429,15 +429,15 @@ proto.proto.weather.Request.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.proto.weather.Request} message
+ * @param {!proto.proto.weather.GetRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.proto.weather.Request.serializeBinaryToWriter = function(message, writer) {
+proto.proto.weather.GetRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getCityname();
+  if (f.length > 0) {
+    writer.writeString(
       1,
       f
     );
@@ -446,16 +446,16 @@ proto.proto.weather.Request.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional int32 ID = 1;
- * @return {number}
+ * optional string CityName = 1;
+ * @return {string}
  */
-proto.proto.weather.Request.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+proto.proto.weather.GetRequest.prototype.getCityname = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {number} value */
-proto.proto.weather.Request.prototype.setId = function(value) {
+/** @param {string} value */
+proto.proto.weather.GetRequest.prototype.setCityname = function(value) {
   jspb.Message.setField(this, 1, value);
 };
 
@@ -471,12 +471,12 @@ proto.proto.weather.Request.prototype.setId = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.proto.weather.Response = function(opt_data) {
+proto.proto.weather.GetResponse = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.proto.weather.Response, jspb.Message);
+goog.inherits(proto.proto.weather.GetResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.proto.weather.Response.displayName = 'proto.proto.weather.Response';
+  proto.proto.weather.GetResponse.displayName = 'proto.proto.weather.GetResponse';
 }
 
 
@@ -491,8 +491,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.proto.weather.Response.prototype.toObject = function(opt_includeInstance) {
-  return proto.proto.weather.Response.toObject(opt_includeInstance, this);
+proto.proto.weather.GetResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.proto.weather.GetResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -501,11 +501,11 @@ proto.proto.weather.Response.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.proto.weather.Response} msg The msg instance to transform.
+ * @param {!proto.proto.weather.GetResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.proto.weather.Response.toObject = function(includeInstance, msg) {
+proto.proto.weather.GetResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     weather: (f = msg.getWeather()) && proto.proto.weather.Weather.toObject(includeInstance, f)
   };
@@ -521,23 +521,23 @@ proto.proto.weather.Response.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.proto.weather.Response}
+ * @return {!proto.proto.weather.GetResponse}
  */
-proto.proto.weather.Response.deserializeBinary = function(bytes) {
+proto.proto.weather.GetResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.proto.weather.Response;
-  return proto.proto.weather.Response.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.proto.weather.GetResponse;
+  return proto.proto.weather.GetResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.proto.weather.Response} msg The message object to deserialize into.
+ * @param {!proto.proto.weather.GetResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.proto.weather.Response}
+ * @return {!proto.proto.weather.GetResponse}
  */
-proto.proto.weather.Response.deserializeBinaryFromReader = function(msg, reader) {
+proto.proto.weather.GetResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -562,9 +562,9 @@ proto.proto.weather.Response.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.proto.weather.Response.prototype.serializeBinary = function() {
+proto.proto.weather.GetResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.proto.weather.Response.serializeBinaryToWriter(this, writer);
+  proto.proto.weather.GetResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -572,11 +572,11 @@ proto.proto.weather.Response.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.proto.weather.Response} message
+ * @param {!proto.proto.weather.GetResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.proto.weather.Response.serializeBinaryToWriter = function(message, writer) {
+proto.proto.weather.GetResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getWeather();
   if (f != null) {
@@ -593,19 +593,19 @@ proto.proto.weather.Response.serializeBinaryToWriter = function(message, writer)
  * optional Weather Weather = 1;
  * @return {?proto.proto.weather.Weather}
  */
-proto.proto.weather.Response.prototype.getWeather = function() {
+proto.proto.weather.GetResponse.prototype.getWeather = function() {
   return /** @type{?proto.proto.weather.Weather} */ (
     jspb.Message.getWrapperField(this, proto.proto.weather.Weather, 1));
 };
 
 
 /** @param {?proto.proto.weather.Weather|undefined} value */
-proto.proto.weather.Response.prototype.setWeather = function(value) {
+proto.proto.weather.GetResponse.prototype.setWeather = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
 
 
-proto.proto.weather.Response.prototype.clearWeather = function() {
+proto.proto.weather.GetResponse.prototype.clearWeather = function() {
   this.setWeather(undefined);
 };
 
@@ -614,7 +614,7 @@ proto.proto.weather.Response.prototype.clearWeather = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.proto.weather.Response.prototype.hasWeather = function() {
+proto.proto.weather.GetResponse.prototype.hasWeather = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 

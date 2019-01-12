@@ -5,7 +5,7 @@ set -eu
 export PATH="$PATH:$(yarn bin)"
 
 PROTO_SRC=../../proto
-PROTO_DEST=./src/common/domain/data/proto
+PROTO_DEST=./src/gRPC/proto
 
 mkdir -p ${PROTO_DEST}
 
