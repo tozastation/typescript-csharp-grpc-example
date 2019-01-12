@@ -14,7 +14,7 @@ function getUser(token: string): user.GetResponse {
     var res = new user.GetResponse;
     req.setToken(token);
     userClient.get(req, function(error, result) {
-        if (error) console.log('Error: ', error);
+        if (error) throw error;
         else res.setUser = result.getUser;
     });
     return res
@@ -33,7 +33,7 @@ function postUser(userId: string, cityName: string, password: string, name: stri
     // [Send] Request
     var res = new user.PostResponse;
     userClient.post(req, function(error, result) {
-        if (error) console.log('Error: ', error);
+        if (error) throw error;
         else res.setToken = result.getToken;
     });
     return res

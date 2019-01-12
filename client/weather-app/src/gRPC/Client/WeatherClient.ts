@@ -14,7 +14,7 @@ function getWeather(cityName: string): weather.GetResponse {
     var res = new weather.GetResponse;
     req.setCityname(cityName);
     weatherClient.get(req, function(error, result) {
-        if (error) console.log('Error: ', error);
+        if (error) throw error;
         else res.setWeather = result.getWeather;
     });
     return res

@@ -4,7 +4,7 @@ import { LoginRequestAction } from 'src/actions/Login/LoginAction';
 import { loginSucceed, loginFailed } from 'src/actions/Login/LoginActionCreator';
 
 function* loginRequest(action: LoginRequestAction) {
-    const {cityName} = yield call(mockApi);
+    const {cityName} = yield call(mockApi); // <- gRPCに変更
     if(cityName !== ""){
         yield put(loginSucceed(cityName));
     }else{
