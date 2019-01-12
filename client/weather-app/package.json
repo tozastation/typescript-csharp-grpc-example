@@ -14,10 +14,14 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@material-ui/core": "^3.8.3",
     "@types/jest": "^23.3.11",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "@types/react-redux": "^6.0.12",
+    "react-redux": "^6.0.0",
+    "typesafe-actions": "^3.0.0",
     "typescript": "^3.2.2"
   }
 }

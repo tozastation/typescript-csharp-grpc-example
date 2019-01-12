@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import loginState from './Login/LoginReducer';
+import ScreenState from './ScreenState/ScreenStateReducer';
 
 const rootReducers = combineReducers({
-    loginState
+    loginState,
+    ScreenState
 });
 
 export default rootReducers;
