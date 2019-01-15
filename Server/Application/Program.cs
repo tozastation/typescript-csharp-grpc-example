@@ -8,6 +8,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Infrastructure;
+using Grpc;
+using Grpc.Core;
+using Proto.Weather;
+using Implements;
+using Service;
 
 namespace Application
 {
@@ -17,13 +22,23 @@ namespace Application
         public static SqlHandler sqlHandler;
         public static void Main(string[] args)
         {
-            configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@"appsettings.json", false).Build(); 
-            sqlHandler = new SqlHandler();
-            CreateWebHostBuilder(args).Build().Run();
-        }
+            const int Port = 5000;
+            var weatherImpl = new WeatherImpl(new WeatherService());
+            Server server = new Server
+            {
+                Services = { Weathers.BindService(weatherImpl) },
+                Ports = { new ServerPort("0.0.0.0", Port, ServerCredentials.Insecure) }
+            };
+            server.Start();
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            Console.WriteLine("Tozawa server listening on port " + Port);
+            Console.WriteLine("Press any key to stop the server...");
+            Console.ReadKey();
+
+            server.ShutdownAsync().Wait();
+            // configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@"appsettings.json", false).Build(); 
+            // sqlHandler = new SqlHandler();
+            // CreateWebHostBuilder(args).Build().Run();
+        }
     }
 }
