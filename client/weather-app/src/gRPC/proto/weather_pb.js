@@ -224,7 +224,7 @@ proto.proto.weather.Weather.prototype.getId = function() {
 
 /** @param {number} value */
 proto.proto.weather.Weather.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3FloatField(this, 1, value);
 };
 
 
@@ -239,7 +239,7 @@ proto.proto.weather.Weather.prototype.getCityname = function() {
 
 /** @param {string} value */
 proto.proto.weather.Weather.prototype.setCityname = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -254,7 +254,7 @@ proto.proto.weather.Weather.prototype.getTempmax = function() {
 
 /** @param {number} value */
 proto.proto.weather.Weather.prototype.setTempmax = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -269,7 +269,7 @@ proto.proto.weather.Weather.prototype.getTempmin = function() {
 
 /** @param {number} value */
 proto.proto.weather.Weather.prototype.setTempmin = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3FloatField(this, 4, value);
 };
 
 
@@ -284,7 +284,7 @@ proto.proto.weather.Weather.prototype.getWind = function() {
 
 /** @param {number} value */
 proto.proto.weather.Weather.prototype.setWind = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3FloatField(this, 5, value);
 };
 
 
@@ -299,7 +299,7 @@ proto.proto.weather.Weather.prototype.getType = function() {
 
 /** @param {string} value */
 proto.proto.weather.Weather.prototype.setType = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -314,7 +314,7 @@ proto.proto.weather.Weather.prototype.getDescription = function() {
 
 /** @param {string} value */
 proto.proto.weather.Weather.prototype.setDescription = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -456,7 +456,7 @@ proto.proto.weather.GetRequest.prototype.getCityname = function() {
 
 /** @param {string} value */
 proto.proto.weather.GetRequest.prototype.setCityname = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

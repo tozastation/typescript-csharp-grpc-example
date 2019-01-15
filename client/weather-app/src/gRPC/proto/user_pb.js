@@ -191,7 +191,7 @@ proto.proto.user.PostUser.prototype.getUserid = function() {
 
 /** @param {string} value */
 proto.proto.user.PostUser.prototype.setUserid = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -206,7 +206,7 @@ proto.proto.user.PostUser.prototype.getCityname = function() {
 
 /** @param {string} value */
 proto.proto.user.PostUser.prototype.setCityname = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -221,7 +221,7 @@ proto.proto.user.PostUser.prototype.getPassword = function() {
 
 /** @param {string} value */
 proto.proto.user.PostUser.prototype.setPassword = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -236,7 +236,7 @@ proto.proto.user.PostUser.prototype.getName = function() {
 
 /** @param {string} value */
 proto.proto.user.PostUser.prototype.setName = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -402,7 +402,7 @@ proto.proto.user.GetUser.prototype.getUserid = function() {
 
 /** @param {string} value */
 proto.proto.user.GetUser.prototype.setUserid = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -417,7 +417,7 @@ proto.proto.user.GetUser.prototype.getCityname = function() {
 
 /** @param {string} value */
 proto.proto.user.GetUser.prototype.setCityname = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -432,7 +432,7 @@ proto.proto.user.GetUser.prototype.getName = function() {
 
 /** @param {string} value */
 proto.proto.user.GetUser.prototype.setName = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -574,7 +574,7 @@ proto.proto.user.GetRequest.prototype.getToken = function() {
 
 /** @param {string} value */
 proto.proto.user.GetRequest.prototype.setToken = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1034,7 +1034,7 @@ proto.proto.user.PostResponse.prototype.getToken = function() {
 
 /** @param {string} value */
 proto.proto.user.PostResponse.prototype.setToken = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
