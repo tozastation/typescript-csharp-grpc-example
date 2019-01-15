@@ -3,7 +3,7 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
-    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/tozastation/Workspace/JBS/tozastation/gRPC-Training/server/obj/project.assets.json</ProjectAssetsFile>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/tozastation/Workspace/jbs/tozastation/gRPC-Training/Server/obj/project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/tozastation/.nuget/packages/</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/tozastation/.nuget/packages/;/usr/local/share/dotnet/sdk/NuGetFallbackFolder</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
@@ -18,8 +18,11 @@
     <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.extensions.configuration.usersecrets/2.2.0-preview3-35497/build/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.extensions.configuration.usersecrets/2.2.0-preview3-35497/build/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.props')" />
     <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.entityframeworkcore.design/2.2.0-preview3-35497/build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.entityframeworkcore.design/2.2.0-preview3-35497/build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props')" />
     <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.mvc.razor.extensions/2.2.0-preview3-35497/build/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.mvc.razor.extensions/2.2.0-preview3-35497/build/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.props')" />
-    <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.razor.design/2.2.0-preview3-35497/build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.razor.design/2.2.0-preview3-35497/build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.razor.design/2.2.0/build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.razor.design/2.2.0/build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.props')" />
     <Import Project="/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.app/2.2.0-preview3-35497/build/netcoreapp2.2/Microsoft.AspNetCore.App.props" Condition="Exists('/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.app/2.2.0-preview3-35497/build/netcoreapp2.2/Microsoft.AspNetCore.App.props')" />
     <Import Project="$(NuGetPackageRoot)grpc.tools/1.17.1/build/Grpc.Tools.props" Condition="Exists('$(NuGetPackageRoot)grpc.tools/1.17.1/build/Grpc.Tools.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_AspNetCore_Razor_Design Condition=" '$(PkgMicrosoft_AspNetCore_Razor_Design)' == '' ">/Users/tozastation/.nuget/packages/microsoft.aspnetcore.razor.design/2.2.0</PkgMicrosoft_AspNetCore_Razor_Design>
+  </PropertyGroup>
 </Project>
