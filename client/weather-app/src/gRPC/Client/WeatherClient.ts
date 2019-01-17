@@ -13,7 +13,7 @@ export function getWeather(cityName: string): weather.GetResponse {
     const req = new weather.GetRequest;
     const res = new weather.GetResponse;
     req.setCityname(cityName);
-    weatherClient.get(req, {}, function(error, result) {
+    weatherClient.get(req, {}, (error, result) => {
         if (error) {
             throw error;
         } else {

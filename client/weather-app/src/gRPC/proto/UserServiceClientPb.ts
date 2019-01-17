@@ -1,4 +1,3 @@
-/* tslint:disable */
 /**
  * @fileoverview gRPC-Web generated client stub for proto.user
  * @enhanceable
@@ -7,15 +6,13 @@
 
 // GENERATED CODE -- DO NOT EDIT!
 
-
 import * as grpcWeb from 'grpc-web';
 import {
   GetRequest,
   GetResponse,
-  GetUser,
   PostRequest,
   PostResponse,
-  PostUser} from './user_pb';
+  } from './user_pb';
 
 export class UsersClient {
   client_: grpcWeb.AbstractClientBase;

@@ -3,4 +3,4 @@ export default interface RegistFormState {
     inputPassword: string;
     inputCityName: string;
     inputName: string;
-  }
+}

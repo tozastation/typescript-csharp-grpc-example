@@ -32,6 +32,7 @@ export default class LoginForm extends React.Component<LoginFormProps,LoginFormS
                     margin="normal"
                 />
                 <Button onClick={this.onFormSubmit}>ログイン</Button>
+                <Button onClick={this.onRegistSubmit}>ユーザ登録</Button>
             </FormControl>
           </div>
         );
@@ -56,11 +57,16 @@ export default class LoginForm extends React.Component<LoginFormProps,LoginFormS
         if ((!this.state.inputUserId.trim()) && (!this.state.inputPassword.trim()) ) {
           return;
         }
-    
         this.props.loginRequest(inputUserId, inputPassword);
-    
+        this.props.goToHome();
+        
         this.setState({
           inputPassword: '' 
         });
-      };
+    };
+
+    private onRegistSubmit = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        e.preventDefault();
+        this.props.goToRegist()
+    };
 }

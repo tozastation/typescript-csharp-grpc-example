@@ -5,9 +5,17 @@ import App from './AppContainer';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import rootReducers from './reducers';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
 
-const store = createStore(rootReducers);
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+  rootReducers,
+  applyMiddleware(sagaMiddleware)
+);
+sagaMiddleware.run(rootSaga);
+// create the saga middleware
 
 ReactDOM.render(
   <Provider store={store}>
