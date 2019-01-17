@@ -12,7 +12,7 @@ import * as grpcWeb from 'grpc-web';
 import {
   GetRequest,
   GetResponse,
-  Weather} from './weather_pb';
+} from './weather_pb';
 
 export class WeathersClient {
   client_: grpcWeb.AbstractClientBase;
