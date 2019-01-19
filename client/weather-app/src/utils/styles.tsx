@@ -1,4 +1,4 @@
-export const Styles = {
+export const Styles  = {
     root: {
       flexGrow: 1,
     },
@@ -23,6 +23,15 @@ export const Styles = {
       pos: {
         marginBottom: 12,
       },
+    // TextField
+    // Button
+    button: {
+      margin: 0,
+    },
+    input: {
+      display: 'none',
+    },
+    
 };
 
 export type ClassNames = keyof typeof Styles;

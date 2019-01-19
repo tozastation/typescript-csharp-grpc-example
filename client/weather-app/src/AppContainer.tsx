@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import App, { AppConnectedProps } from './App';
-import {StateType} from 'typesafe-actions';
-import rootReducers from './reducers';
+// import {StateType} from 'typesafe-actions';
+// import rootReducers from './reducers';
 
-type RootType = StateType<typeof rootReducers>;
+// //type RootType = StateType<typeof rootReducers>;
 
-const mapStateToProps = (state:RootType): AppConnectedProps => ({
+const mapStateToProps = (state:any): AppConnectedProps => ({
     screenState: state.ScreenState
 })
 

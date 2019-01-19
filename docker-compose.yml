@@ -12,17 +12,17 @@ services:
     #     - MSSQL_LCID=1041
     #     - MSSQL_COLLATION=Japanese_CI_AS
     grpc:
-      container_name: gprc-server
+      container_name: grpc-server
       build: ./Server
       stdin_open: true
       tty: true
       ports:
         - "5000:5000"
-    # proxy:
-    #   container_name: gprc-proxy
-    #   build: ./Envoy
-    #   ports:
-    #     - "8080:8080"
+    proxy:
+      container_name: grpc-proxy
+      build: ./Envoy
+      ports:
+        - "8080:8080"
     # client:
     #   container_name: client
     #   build: ./Client

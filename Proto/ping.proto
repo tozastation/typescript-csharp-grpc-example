@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto.ping;
+
+service Check{
+    rpc Ping (Empty) returns (Pong) {}
+}
+
+message Empty {}
+
+message Pong {
+    string Reply = 1;
+}

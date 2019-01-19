@@ -9,16 +9,21 @@ const weatherClient = new weather_grpc.WeathersClient(
 );
 
 // イメージ: [GET] /weathers
-export function getWeather(cityName: string): weather.GetResponse {
+
+export async function getWeather(cityName: string) {
     const req = new weather.GetRequest;
     const res = new weather.GetResponse;
     req.setCityname(cityName);
+    console.log('api');
     weatherClient.get(req, {}, (error, result) => {
         if (error) {
+            console.log(JSON.stringify(error));
             throw error;
         } else {
-            res.setWeather = result.getWeather;
+            console.log(JSON.stringify(result.getWeather()));
+            res.setWeather(result.getWeather());
         }
-    });
-    return res
+    })
+    console.log(JSON.stringify(res.getWeather()));
+    return {res};
 }

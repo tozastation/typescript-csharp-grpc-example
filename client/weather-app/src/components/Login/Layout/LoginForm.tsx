@@ -1,11 +1,12 @@
 import * as React from 'react';
 import LoginFormProps from '../Data/LoginFormProps';
 import LoginFormState from '../Data/LoginFormState';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { withStyles, FormControl } from '@material-ui/core';
+import { Styles } from 'src/utils/styles';
 
-export default class LoginForm extends React.Component<LoginFormProps,LoginFormState> {
+class LoginForm extends React.Component<LoginFormProps,LoginFormState> {
     constructor(props: LoginFormProps) {
         super(props);
     
@@ -16,6 +17,7 @@ export default class LoginForm extends React.Component<LoginFormProps,LoginFormS
     }
 
     public render() {
+        const { classes } = this.props;
         return (
           <div>
             <FormControl>
@@ -31,13 +33,22 @@ export default class LoginForm extends React.Component<LoginFormProps,LoginFormS
                     onChange={this.onInputPasswordChange}
                     margin="normal"
                 />
-                <Button onClick={this.onFormSubmit}>ログイン</Button>
-                <Button onClick={this.onRegistSubmit}>ユーザ登録</Button>
+                <Button 
+                    onClick={this.onFormSubmit}
+                    color="primary"
+                    className={classes.button}
+                >ログイン</Button>
+                <Button 
+                    onClick={this.onRegistSubmit}
+                    color="secondary"
+                    className={classes.button}
+                >ユーザ登録</Button>
             </FormControl>
           </div>
         );
       }  
-
+    
+    
     private onInputUserIDChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         this.setState({
             inputUserId: e.currentTarget.value
@@ -70,3 +81,5 @@ export default class LoginForm extends React.Component<LoginFormProps,LoginFormS
         this.props.goToRegist()
     };
 }
+
+export default withStyles(Styles)(LoginForm);
