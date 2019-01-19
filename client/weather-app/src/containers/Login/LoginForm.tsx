@@ -5,13 +5,13 @@ import { loginRequest } from 'src/actions/Login/LoginActionCreator';
 import { connect } from 'react-redux';
 import LoginForm from 'src/components/Login/Layout/LoginForm';
 import ScreenStateAction from 'src/actions/ScreenState/ScreenStateAction';
-import {screenStateToHomeRequest, screenStateToLogin, screenStateToRegist } from 'src/actions/ScreenState/ScreenStateActionCreator';
+import {screenStateToLogin, screenStateToRegist, screenStateToHome } from 'src/actions/ScreenState/ScreenStateActionCreator';
 
 const mapDispatchToProps = (
   dispatch: Dispatch<LoginAction | ScreenStateAction>
 ): LoginFormDispatchProps => ({
   loginRequest: (userId: string, password: string) => dispatch(loginRequest(userId, password)),
-  goToHome: () => dispatch(screenStateToHomeRequest()),
+  goToHome: () => dispatch(screenStateToHome()),
   goToLogin: () => dispatch(screenStateToLogin()),
   goToRegist: () => dispatch(screenStateToRegist())
 });

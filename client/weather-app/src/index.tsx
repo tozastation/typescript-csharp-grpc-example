@@ -10,7 +10,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
+export const store = createStore(
   rootReducers,
   applyMiddleware(sagaMiddleware)
 );

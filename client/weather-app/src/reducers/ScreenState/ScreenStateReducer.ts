@@ -5,13 +5,6 @@ import { ScreenStateActionType } from 'src/actions/ScreenState/ScreenStateAction
 
 const initialState: ScreenState = {
   screenType: ScreenStateType.LOGIN_SCREEN,
-  id: 0,
-  cityName: "",
-  tempMax: 0,
-  tempMin: 0,
-  wind: 0,
-  typeWeather: "",
-  description: ""
 }
 
 const ScreenState = (state: ScreenState = initialState, action: ScreenStateAction): ScreenState => {
@@ -25,13 +18,6 @@ const ScreenState = (state: ScreenState = initialState, action: ScreenStateActio
       return {
         ...state,
         screenType: ScreenStateType.HOME_SCREEN,
-        id: action.id,
-        cityName: action.cityName,
-        tempMax: action.tempMax,
-        tempMin: action.tempMin,
-        wind: action.wind,
-        typeWeather: action.typeWeather,
-        description: action.description
       };
     case ScreenStateActionType.GO_TO_REGIST:
       return {

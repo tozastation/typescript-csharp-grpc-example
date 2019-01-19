@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
-import {StateType} from 'typesafe-actions';
-import rootReducers from '../../reducers';
-import WeatherState from 'src/states/Screen/WeatherState';
 import MyWeather from 'src/components/Weather/Layout/MyWeather';
+import { Dispatch } from 'redux';
+import ScreenStateAction from 'src/actions/ScreenState/ScreenStateAction';
+import { WeatherDispatchProps } from 'src/components/Weather/Data/WeatherProps';
+import { screenStateToRegist, screenStateToLogin, screenStateToHome } from 'src/actions/ScreenState/ScreenStateActionCreator';
+import { weatherRequest } from 'src/actions/Weather/WeatherActionCreator';
+import WeatherAction from 'src/actions/Weather/WeatherAction';
 
-type RootType = StateType<typeof rootReducers>;
-
-const mapStateToProps = (state:RootType): WeatherState => ({
-    id: state.ScreenState.id,
-    cityName: state.ScreenState.cityName,
-    tempMax: state.ScreenState.tempMax,
-    tempMin: state.ScreenState.tempMin,
-    description: state.ScreenState.description,
-    wind: state.ScreenState.wind,
-    typeWeather: state.ScreenState.typeWeather
-})
+const mapDispatchToProps = (
+  dispatch: Dispatch<WeatherAction | ScreenStateAction>
+): WeatherDispatchProps => ({
+  weatherRequest: (cityName: string) => dispatch(weatherRequest(cityName)),
+  goToHome: () => dispatch(screenStateToHome()),
+  goToLogin: () => dispatch(screenStateToLogin()),
+  goToRegist: () => dispatch(screenStateToRegist())
+});
 
 export default connect(
-  mapStateToProps,
-  null
+  null,
+  mapDispatchToProps
 )(MyWeather);

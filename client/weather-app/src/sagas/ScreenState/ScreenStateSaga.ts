@@ -9,20 +9,12 @@ function* goToHomeRequest(action: ScreenStateAction) {
     const {response}: {response: GetResponse} = yield call(getWeather, "Hakodate");
     const weather = response.getWeather();
     if(weather !== null){
-        yield put(screenStateToHome(
-            weather.getId(),
-            weather.getCityname(),
-            weather.getTempmax(),
-            weather.getTempmin(),
-            weather.getWind(),
-            weather.getType(),
-            weather.getDescription()
-        ));
+        yield put(screenStateToHome());
     }else{
         yield put(screenStateToLogin());
     }
 }
 
 export const ScreenStateSaga = [
-   takeEvery(ScreenStateType.GO_TO_HOME_REQUEST, goToHomeRequest)
+   takeEvery(ScreenStateType.HOME_SCREEN, goToHomeRequest)
 ];

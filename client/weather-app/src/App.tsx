@@ -24,8 +24,8 @@ class App extends React.Component<AppConnectedProps> {
           <RegistForm /> 
         }
         {
-          screenState.screenType === ScreenStateType.HOME_SCREEN 
-          
+          screenState.screenType === ScreenStateType.HOME_SCREEN &&
+          <MyWeather /> 
         }
       </div>
     );
