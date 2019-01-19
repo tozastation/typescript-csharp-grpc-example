@@ -12750,11 +12750,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tozastation/Workspace/jbs/tozastation/gRPC-Training/Server/server.csproj",
+      "projectUniqueName": "/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.csproj",
       "projectName": "server",
-      "projectPath": "/Users/tozastation/Workspace/jbs/tozastation/gRPC-Training/Server/server.csproj",
+      "projectPath": "/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.csproj",
       "packagesPath": "/Users/tozastation/.nuget/packages/",
-      "outputPath": "/Users/tozastation/Workspace/jbs/tozastation/gRPC-Training/Server/obj/",
+      "outputPath": "/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

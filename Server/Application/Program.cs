@@ -13,7 +13,7 @@ using Grpc.Core;
 using Proto.Weather;
 using Implements;
 using Service;
-
+using Proto.Ping;
 namespace Application
 {
     public class Program
@@ -24,9 +24,13 @@ namespace Application
         {
             const int Port = 5000;
             var weatherImpl = new WeatherImpl(new WeatherService());
+            var pingImpl = new PingImpl();
             Server server = new Server
             {
-                Services = { Weathers.BindService(weatherImpl) },
+                Services = { 
+                    Weathers.BindService(weatherImpl),
+                    Check.BindService(pingImpl)
+                },
                 Ports = { new ServerPort("0.0.0.0", Port, ServerCredentials.Insecure) }
             };
             server.Start();

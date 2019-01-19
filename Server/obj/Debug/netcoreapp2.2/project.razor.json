@@ -1,5 +1,5 @@
 {
-  "ProjectFilePath": "/Users/tozastation/Workspace/jbs/tozastation/gRPC-Training/Server/server.csproj",
+  "ProjectFilePath": "/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.csproj",
   "TargetFramework": "netcoreapp2.2",
   "TagHelpers": [],
   "Configuration": {

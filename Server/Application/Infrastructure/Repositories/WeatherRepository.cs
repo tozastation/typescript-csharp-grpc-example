@@ -13,7 +13,7 @@ namespace Repositories
 
         public List<DbCurrentWeather> FindCurrentWeatherByCityName(string cityName)
         {   
-            string patameter = "?=" + cityName;
+            string patameter = "?q=" + cityName;
             string ROOT_URL = OpenWeatherMap.ROOT_URL;
             string APP_KEY = OpenWeatherMap.APP_KEY;
             string url =  ROOT_URL + patameter + APP_KEY;
