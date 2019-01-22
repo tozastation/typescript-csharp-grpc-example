@@ -1,0 +1,13 @@
+CREATE DATABASE Weather;
+
+GO
+
+CREATE TABLE Weather.dbo.Users
+(
+    -- Id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    UserID NVARCHAR(128) PRIMARY KEY NOT NULL,
+    CityName NVARCHAR(128),
+    Name NVARCHAR(128),
+    Password NVARCHAR(255),
+    AccessToken NVARCHAR(1000)
+);

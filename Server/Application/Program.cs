@@ -11,6 +11,7 @@ using Infrastructure;
 using Grpc;
 using Grpc.Core;
 using Proto.Weather;
+using Proto.User;
 using Implements;
 using Service;
 using Proto.Ping;
@@ -24,12 +25,14 @@ namespace Application
         {
             const int Port = 5000;
             var weatherImpl = new WeatherImpl(new WeatherService());
+            var userImpl = new UserImpl(new UserService());
             var pingImpl = new PingImpl();
             Server server = new Server
             {
                 Services = { 
                     Weathers.BindService(weatherImpl),
-                    Check.BindService(pingImpl)
+                    Check.BindService(pingImpl),
+                    Users.BindService(userImpl)
                 },
                 Ports = { new ServerPort("0.0.0.0", Port, ServerCredentials.Insecure) }
             };
@@ -37,12 +40,9 @@ namespace Application
 
             Console.WriteLine("Tozawa server listening on port " + Port);
             Console.WriteLine("Press any key to stop the server...");
-            Console.ReadKey();
+            Console.Read();
 
             server.ShutdownAsync().Wait();
-            // configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@"appsettings.json", false).Build(); 
-            // sqlHandler = new SqlHandler();
-            // CreateWebHostBuilder(args).Build().Run();
         }
     }
 }

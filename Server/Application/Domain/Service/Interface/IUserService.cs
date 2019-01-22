@@ -5,7 +5,7 @@ namespace Service
 {
     public interface IUserService
     {
-        List<GetUser> FindUserByUserToken(string token);
+        GetUser FindUserByUserToken(string token);
         string CreateUser(PostUser user);
     }
 }

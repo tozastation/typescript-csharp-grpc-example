@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using DB;
+using Model.Local;
 using Proto.User;
 
 namespace Repositories
 {
     public interface IUserRepository
     {
-        List<DbUser> FindUserByUserToken(string token);
+        User FindUserByUserToken(string token);
         string CreateUser(PostUser user);
     }
 }

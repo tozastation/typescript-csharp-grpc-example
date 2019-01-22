@@ -21,15 +21,16 @@ namespace Implements
         public override Task<GetResponse> Get(GetRequest request, ServerCallContext context)
         {
             string token = request.Token;
-            var Users = this.service.FindUserByUserToken(token);
-            var Response = new GetResponse();
-            Response.User = Users[0];
-            return Task.FromResult(Response);
+            var user = this.service.FindUserByUserToken(token);
+            var res = new GetResponse();
+           res.User = user;
+            return Task.FromResult(res);
         }
 
         public override Task<PostResponse> Post(PostRequest request, ServerCallContext context)
         {
             var user = request.User;
+            Console.WriteLine(user);
             var token = this.service.CreateUser(user);
             var Response = new PostResponse();
             Response.Token = token;
