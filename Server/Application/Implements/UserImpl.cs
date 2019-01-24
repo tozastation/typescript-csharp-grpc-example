@@ -23,17 +23,24 @@ namespace Implements
             string token = request.Token;
             var user = this.service.FindUserByUserToken(token);
             var res = new GetResponse();
-           res.User = user;
+            res.User = user;
             return Task.FromResult(res);
         }
 
         public override Task<PostResponse> Post(PostRequest request, ServerCallContext context)
         {
             var user = request.User;
-            Console.WriteLine(user);
-            var token = this.service.CreateUser(user);
             var Response = new PostResponse();
-            Response.Token = token;
+            Response.CityName = this.service.CreateUser(user);
+            return Task.FromResult(Response);
+        }
+
+        public override Task<LoginResponse> Login(LoginRequest request, ServerCallContext context)
+        {
+            string uID = request.UserID;
+            string password = request.Password;
+            var Response = new LoginResponse();
+            Response.CityName = this.service.LoginUser(uID, password);
             return Task.FromResult(Response);
         }
     }

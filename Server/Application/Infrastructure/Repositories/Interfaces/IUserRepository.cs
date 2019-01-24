@@ -8,5 +8,7 @@ namespace Repositories
     {
         User FindUserByUserToken(string token);
         string CreateUser(PostUser user);
+
+        string Login(string uID, string password);
     }
 }

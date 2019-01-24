@@ -51,6 +51,40 @@ namespace Repositories
             return user;
         }
 
+        public String Login(string uID, string password)
+        {   
+            User user = new User();
+            using(var connection = new SqlConnection(connectionString))
+            {
+                try {
+                    connection.Open();
+                    Console.WriteLine("[Start] DB Connection");
+                    string query = $"SELECT * FROM {tableName} WHERE Id = @Id;";
+                    Console.WriteLine("[Start] Query Executing");
+                    var result = connection.Query<User>(query, new { 
+                        Id = uID
+                    });
+                    Console.WriteLine("[End] Query Executing");
+                    foreach (User a in result) 
+                    {
+                        user = a;
+                    }
+                }
+                finally
+                {
+                    connection.Close();
+                    Console.WriteLine("[End] DB Connection");
+                }
+            }
+            String checkHash = _GetHashedTextString(password);
+            Console.WriteLine(checkHash);
+            Console.WriteLine(user.Password);
+            if (checkHash == user.Password)
+            {
+                return user.CityName;
+            }
+            return "";
+        }
         public string CreateUser(PostUser user)
         {   
             Console.WriteLine("Call CreateUser");
@@ -87,7 +121,7 @@ namespace Repositories
                     Console.WriteLine("[End] DB Connection");
                 }
             }
-            return token;
+            return user.CityName;
         }
 
         // 文字列のハッシュ値（SHA256）を計算・取得する

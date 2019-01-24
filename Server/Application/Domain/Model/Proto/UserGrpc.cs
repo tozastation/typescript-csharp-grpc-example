@@ -16,6 +16,8 @@ namespace Proto.User {
     static readonly grpc::Marshaller<global::Proto.User.GetResponse> __Marshaller_proto_user_GetResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.User.GetResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Proto.User.PostRequest> __Marshaller_proto_user_PostRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.User.PostRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Proto.User.PostResponse> __Marshaller_proto_user_PostResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.User.PostResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Proto.User.LoginRequest> __Marshaller_proto_user_LoginRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.User.LoginRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Proto.User.LoginResponse> __Marshaller_proto_user_LoginResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Proto.User.LoginResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Proto.User.GetRequest, global::Proto.User.GetResponse> __Method_Get = new grpc::Method<global::Proto.User.GetRequest, global::Proto.User.GetResponse>(
         grpc::MethodType.Unary,
@@ -30,6 +32,13 @@ namespace Proto.User {
         "Post",
         __Marshaller_proto_user_PostRequest,
         __Marshaller_proto_user_PostResponse);
+
+    static readonly grpc::Method<global::Proto.User.LoginRequest, global::Proto.User.LoginResponse> __Method_Login = new grpc::Method<global::Proto.User.LoginRequest, global::Proto.User.LoginResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Login",
+        __Marshaller_proto_user_LoginRequest,
+        __Marshaller_proto_user_LoginResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -46,6 +55,11 @@ namespace Proto.User {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Proto.User.PostResponse> Post(global::Proto.User.PostRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Proto.User.LoginResponse> Login(global::Proto.User.LoginRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -107,6 +121,22 @@ namespace Proto.User {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Post, null, options, request);
       }
+      public virtual global::Proto.User.LoginResponse Login(global::Proto.User.LoginRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Login(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Proto.User.LoginResponse Login(global::Proto.User.LoginRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Login, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Proto.User.LoginResponse> LoginAsync(global::Proto.User.LoginRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return LoginAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Proto.User.LoginResponse> LoginAsync(global::Proto.User.LoginRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Login, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override UsersClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -120,7 +150,8 @@ namespace Proto.User {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_Get, serviceImpl.Get)
-          .AddMethod(__Method_Post, serviceImpl.Post).Build();
+          .AddMethod(__Method_Post, serviceImpl.Post)
+          .AddMethod(__Method_Login, serviceImpl.Login).Build();
     }
 
     /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
@@ -131,6 +162,7 @@ namespace Proto.User {
     {
       serviceBinder.AddMethod(__Method_Get, serviceImpl.Get);
       serviceBinder.AddMethod(__Method_Post, serviceImpl.Post);
+      serviceBinder.AddMethod(__Method_Login, serviceImpl.Login);
     }
 
   }

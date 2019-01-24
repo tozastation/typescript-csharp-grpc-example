@@ -29,12 +29,15 @@ namespace Proto.User {
             "CgROYW1lGAQgASgJIjkKB0dldFVzZXISDgoGVXNlcklEGAEgASgJEhAKCENp",
             "dHlOYW1lGAIgASgJEgwKBE5hbWUYAyABKAkiGwoKR2V0UmVxdWVzdBINCgVU",
             "b2tlbhgBIAEoCSIwCgtHZXRSZXNwb25zZRIhCgRVc2VyGAEgASgLMhMucHJv",
-            "dG8udXNlci5HZXRVc2VyIjEKC1Bvc3RSZXF1ZXN0EiIKBFVzZXIYASABKAsy",
-            "FC5wcm90by51c2VyLlBvc3RVc2VyIh0KDFBvc3RSZXNwb25zZRINCgVUb2tl",
-            "bhgBIAEoCTJ+CgVVc2VycxI4CgNHZXQSFi5wcm90by51c2VyLkdldFJlcXVl",
-            "c3QaFy5wcm90by51c2VyLkdldFJlc3BvbnNlIgASOwoEUG9zdBIXLnByb3Rv",
-            "LnVzZXIuUG9zdFJlcXVlc3QaGC5wcm90by51c2VyLlBvc3RSZXNwb25zZSIA",
-            "YgZwcm90bzM="));
+            "dG8udXNlci5HZXRVc2VyIjAKDExvZ2luUmVxdWVzdBIOCgZVc2VySUQYASAB",
+            "KAkSEAoIUGFzc3dvcmQYAiABKAkiIQoNTG9naW5SZXNwb25zZRIQCghDaXR5",
+            "TmFtZRgBIAEoCSIxCgtQb3N0UmVxdWVzdBIiCgRVc2VyGAEgASgLMhQucHJv",
+            "dG8udXNlci5Qb3N0VXNlciIgCgxQb3N0UmVzcG9uc2USEAoIQ2l0eU5hbWUY",
+            "ASABKAkyvgEKBVVzZXJzEjgKA0dldBIWLnByb3RvLnVzZXIuR2V0UmVxdWVz",
+            "dBoXLnByb3RvLnVzZXIuR2V0UmVzcG9uc2UiABI7CgRQb3N0EhcucHJvdG8u",
+            "dXNlci5Qb3N0UmVxdWVzdBoYLnByb3RvLnVzZXIuUG9zdFJlc3BvbnNlIgAS",
+            "PgoFTG9naW4SGC5wcm90by51c2VyLkxvZ2luUmVxdWVzdBoZLnByb3RvLnVz",
+            "ZXIuTG9naW5SZXNwb25zZSIAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -42,8 +45,10 @@ namespace Proto.User {
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.GetUser), global::Proto.User.GetUser.Parser, new[]{ "UserID", "CityName", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.GetRequest), global::Proto.User.GetRequest.Parser, new[]{ "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.GetResponse), global::Proto.User.GetResponse.Parser, new[]{ "User" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.LoginRequest), global::Proto.User.LoginRequest.Parser, new[]{ "UserID", "Password" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.LoginResponse), global::Proto.User.LoginResponse.Parser, new[]{ "CityName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.PostRequest), global::Proto.User.PostRequest.Parser, new[]{ "User" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.PostResponse), global::Proto.User.PostResponse.Parser, new[]{ "Token" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.User.PostResponse), global::Proto.User.PostResponse.Parser, new[]{ "CityName" }, null, null, null)
           }));
     }
     #endregion
@@ -724,6 +729,292 @@ namespace Proto.User {
 
   }
 
+  public sealed partial class LoginRequest : pb::IMessage<LoginRequest> {
+    private static readonly pb::MessageParser<LoginRequest> _parser = new pb::MessageParser<LoginRequest>(() => new LoginRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<LoginRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Proto.User.UserReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LoginRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LoginRequest(LoginRequest other) : this() {
+      userID_ = other.userID_;
+      password_ = other.password_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LoginRequest Clone() {
+      return new LoginRequest(this);
+    }
+
+    /// <summary>Field number for the "UserID" field.</summary>
+    public const int UserIDFieldNumber = 1;
+    private string userID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string UserID {
+      get { return userID_; }
+      set {
+        userID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Password" field.</summary>
+    public const int PasswordFieldNumber = 2;
+    private string password_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as LoginRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(LoginRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (UserID != other.UserID) return false;
+      if (Password != other.Password) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (UserID.Length != 0) hash ^= UserID.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (UserID.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(UserID);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Password);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (UserID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UserID);
+      }
+      if (Password.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(LoginRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.UserID.Length != 0) {
+        UserID = other.UserID;
+      }
+      if (other.Password.Length != 0) {
+        Password = other.Password;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            UserID = input.ReadString();
+            break;
+          }
+          case 18: {
+            Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class LoginResponse : pb::IMessage<LoginResponse> {
+    private static readonly pb::MessageParser<LoginResponse> _parser = new pb::MessageParser<LoginResponse>(() => new LoginResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<LoginResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Proto.User.UserReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LoginResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LoginResponse(LoginResponse other) : this() {
+      cityName_ = other.cityName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LoginResponse Clone() {
+      return new LoginResponse(this);
+    }
+
+    /// <summary>Field number for the "CityName" field.</summary>
+    public const int CityNameFieldNumber = 1;
+    private string cityName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CityName {
+      get { return cityName_; }
+      set {
+        cityName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as LoginResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(LoginResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (CityName != other.CityName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (CityName.Length != 0) hash ^= CityName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (CityName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(CityName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (CityName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CityName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(LoginResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.CityName.Length != 0) {
+        CityName = other.CityName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            CityName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class PostRequest : pb::IMessage<PostRequest> {
     private static readonly pb::MessageParser<PostRequest> _parser = new pb::MessageParser<PostRequest>(() => new PostRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -732,7 +1023,7 @@ namespace Proto.User {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.User.UserReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Proto.User.UserReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -867,7 +1158,7 @@ namespace Proto.User {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.User.UserReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Proto.User.UserReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -884,7 +1175,7 @@ namespace Proto.User {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PostResponse(PostResponse other) : this() {
-      token_ = other.token_;
+      cityName_ = other.cityName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -893,14 +1184,17 @@ namespace Proto.User {
       return new PostResponse(this);
     }
 
-    /// <summary>Field number for the "Token" field.</summary>
-    public const int TokenFieldNumber = 1;
-    private string token_ = "";
+    /// <summary>Field number for the "CityName" field.</summary>
+    public const int CityNameFieldNumber = 1;
+    private string cityName_ = "";
+    /// <summary>
+    /// string Token = 1;
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Token {
-      get { return token_; }
+    public string CityName {
+      get { return cityName_; }
       set {
-        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        cityName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -917,14 +1211,14 @@ namespace Proto.User {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Token != other.Token) return false;
+      if (CityName != other.CityName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (CityName.Length != 0) hash ^= CityName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -938,9 +1232,9 @@ namespace Proto.User {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Token.Length != 0) {
+      if (CityName.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Token);
+        output.WriteString(CityName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -950,8 +1244,8 @@ namespace Proto.User {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Token.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
+      if (CityName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CityName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -964,8 +1258,8 @@ namespace Proto.User {
       if (other == null) {
         return;
       }
-      if (other.Token.Length != 0) {
-        Token = other.Token;
+      if (other.CityName.Length != 0) {
+        CityName = other.CityName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -979,7 +1273,7 @@ namespace Proto.User {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Token = input.ReadString();
+            CityName = input.ReadString();
             break;
           }
         }

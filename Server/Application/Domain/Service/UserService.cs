@@ -25,8 +25,14 @@ namespace Service
 
         public string CreateUser(PostUser user)
         {
-            string token = _userRepository.CreateUser(user);
-            return token;
+            string cityName = _userRepository.CreateUser(user);
+            return cityName;
+        }
+
+        public string LoginUser(string uID, string password)
+        {
+            string cityName = _userRepository.Login(uID, password);
+            return cityName;
         }
     }
 }

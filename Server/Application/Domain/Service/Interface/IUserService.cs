@@ -7,5 +7,7 @@ namespace Service
     {
         GetUser FindUserByUserToken(string token);
         string CreateUser(PostUser user);
+
+        string LoginUser(string uID, string password);
     }
 }
