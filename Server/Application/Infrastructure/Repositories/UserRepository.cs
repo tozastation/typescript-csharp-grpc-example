@@ -21,50 +21,70 @@ namespace Repositories
     {
 
         private string connectionString = @"Data Source=127.0.0.1;Initial Catalog=Weather;Connect Timeout=60;Persist Security Info=True;User ID=sa;Password=Test@1234";
-        public User FindUserByUserToken(string token)
+        
+        private string tableName = "[Weather].[dbo].[Users]";
+        public User FindUserByUserToken(String token)
         {   
+            User user = new User();
             using(var connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                string query = $@"SELECT * FROM Users WHERE AccessToken = @AccessTOken;";
-                var result = connection.Query<User>(query, new { AccessToken = token });
-                connection.Close();
-                return (User)result;
+                try {
+                    connection.Open();
+                    Console.WriteLine("[Start] DB Connection");
+                    string query = $"SELECT * FROM {tableName} WHERE AccessToken = @AccessToken;";
+                    Console.WriteLine("[Start] Query Executing");
+                    var result = connection.Query<User>(query, new { 
+                        AccessToken = token
+                    });
+                    Console.WriteLine("[End] Query Executing");
+                    foreach (User a in result) 
+                    {
+                        user = a;
+                    }
+                }
+                finally
+                {
+                    connection.Close();
+                    Console.WriteLine("[End] DB Connection");
+                }
             }
+            return user;
         }
 
         public string CreateUser(PostUser user)
         {   
-            string token = BuildToken(user.Name, user.CityName);
             Console.WriteLine("Call CreateUser");
+            string token = BuildToken(user.Name, user.CityName);
             using(var connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    { 
-                        Console.WriteLine("Open Connection");
-                        string query = $@"INSERT INTO 
-                        Users (UserID, CityName, Name, Password, AccessToken) 
-                        Values (@UserID, @CityName, @Name, @Password, @AccessToken);";
-                        
-                        Console.WriteLine(token);
-                        var u = new User() 
-                        {
-                            UserID = user.UserID,
-                            CityName = user.CityName,
-                            Name = user.Name,
-                            Password = _GetHashedTextString(user.Password),
-                            AccessToken = token
-                        };
-                        var result = connection.Execute(query, u, transaction);
-                    }
-                    Console.WriteLine("Done");
+                    Console.WriteLine("[Start] DB Connection");
+                    string query = $"INSERT INTO {tableName} VALUES (@Id, @CityName, @Name, @Password, @AccessToken);";
+                    
+                    Console.WriteLine("---");
+                    Console.WriteLine("UserID:" + user.UserID);
+                    Console.WriteLine("CityName:" + user.CityName);
+                    Console.WriteLine("Name:" + user.Name);
+                    Console.WriteLine("Password:" + user.Password);
+                    Console.WriteLine("AccessToken:" + token);
+                    Console.WriteLine("---");
+
+                    Console.WriteLine("[Start] Query Executing");
+                    var result = connection.Execute(query, new {
+                        Id = user.UserID,
+                        CityName = user.CityName,
+                        Name = user.Name,
+                        Password = _GetHashedTextString(user.Password),
+                        AccessToken = token
+                    });
+                    Console.WriteLine("[End] Query Executing");
                 }
                 finally
                 {
                     connection.Close();
+                    Console.WriteLine("[End] DB Connection");
                 }
             }
             return token;

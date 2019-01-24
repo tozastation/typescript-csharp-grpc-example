@@ -17,7 +17,7 @@ namespace Service
         {
             User user = _userRepository.FindUserByUserToken(token);
             var u = new GetUser();
-            u.UserID = user.UserID;
+            u.UserID = user.Id;
             u.Name = user.Name;
             u.CityName = user.CityName;
             return u;
