@@ -4,10 +4,9 @@ GO
 
 CREATE TABLE Weather.dbo.Users
 (
-    -- Id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
-    UserID NVARCHAR(128) PRIMARY KEY NOT NULL,
-    CityName NVARCHAR(128),
-    Name NVARCHAR(128),
-    Password NVARCHAR(255),
-    AccessToken NVARCHAR(1000)
+    Id VARCHAR(128) PRIMARY KEY NOT NULL,
+    CityName VARCHAR(128),
+    Name VARCHAR(128),
+    Password VARCHAR(255),
+    AccessToken VARCHAR(1000)
 );
