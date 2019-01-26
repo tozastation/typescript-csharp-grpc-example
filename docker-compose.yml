@@ -1,8 +1,7 @@
 version: '3'
 services:
-    mssql:
+    db:
       build: ./Mssql
-      container_name: mssql-server
       ports:
         - 1433:1433
       environment:
@@ -16,23 +15,21 @@ services:
         - ./Mssql/start-up.sh:/start-up.sh
       command: "sh -c '/start-up.sh & /opt/mssql/bin/sqlservr;'"
     grpc:
-      container_name: grpc-server
       build: ./Server
       stdin_open: true
       tty: true
       ports:
-        - "5000:5000"
+        - 5000:5000
     proxy:
-      container_name: grpc-proxy
       build: ./Envoy
       ports:
-        - "8080:8080"
+        - 8080:8080
     # client:
-    #   container_name: client
-    #   build: ./Client
-    #   volumes:
-    #     - ./client/weather-app/src:/client/weather-app/src
-    #     - ./client/weather-app/public:/client/weather-app/public
-    #   ports:
-    #     - "3000:3000"
+    #    container_name: client
+    #    build: ./Client
+    #    volumes:
+    #      - ./client/weather-app/src:/client/weather-app/src
+    #      - ./client/weather-app/public:/client/weather-app/public
+    #    ports:
+    #      - "3000:3000"
       

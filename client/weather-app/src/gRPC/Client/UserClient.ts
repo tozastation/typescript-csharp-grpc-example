@@ -9,33 +9,52 @@ const userClient = new user_grpc.UsersClient(
     {}
 );
 
-// イメージ: [GET] /users
-export function getUser(token: string): user.GetResponse {
-    const req = new user.GetRequest;
-    var res = new user.GetResponse;
-    req.setToken(token);
-    userClient.get(req, {}, function(error, result) {
-        if (error) throw error;
-        else res.setUser = result.getUser;
+export const postUser = (userID: string, cityName: string, password: string, name: string) => {
+    return new Promise<user.PostResponse>((resolve, reject) => {
+        const req = new user.PostRequest;
+        const a = new user.PostUser();
+        a.setUserid(userID);
+        a.setCityname(cityName);
+        a.setPassword(password);
+        a.setName(name);
+        req.setUser(a);
+        userClient.post(req, {}, (error, result) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(result);
+            }
+        });
+    }).then(result => {
+        return { result };
     });
-    return res
+}
+// login
+export const login = (userID: string, password: string) => {
+    return new Promise<user.LoginResponse>((resolve, reject) => {
+        const req = new user.LoginRequest;
+        req.setUserid(userID);
+        req.setPassword(password);
+        userClient.login(req, {}, (error, result) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(result);
+            }
+        });
+    }).then(result => {
+        return { result };
+    });
 }
 
-// イメージ: [POST] /users
-export function postUser(userId: string, cityName: string, password: string, name: string): user.PostResponse {
-    const req = new user.PostRequest;
-    // [Set] new Post User
-    const a = new user.PostUser();
-    a.setName(name);
-    a.setPassword(password);
-    a.setUserid(userId);
-    a.setCityname(cityName);
-    req.setUser(a);
-    // [Send] Request
-    var res = new user.PostResponse;
-    userClient.post(req, {}, (error, result) => {
-        if (error) throw error;
-        else res.setToken = result.getToken;
-    });
-    return res
-}
+// [Unused]
+// export function getUser(token: string): user.GetResponse {
+//     const req = new user.GetRequest;
+//     var res = new user.GetResponse;
+//     req.setToken(token);
+//     userClient.get(req, {}, function(error, result) {
+//         if (error) throw error;
+//         else res.setUser = result.getUser;
+//     });
+//     return res
+// }

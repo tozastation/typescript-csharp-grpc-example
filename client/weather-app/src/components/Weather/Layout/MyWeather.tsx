@@ -5,11 +5,38 @@ import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, IconButton, Button, Card, CardContent, withStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Styles } from 'src/utils/styles';
+import WeatherState from '../Data/WeatherState';
+import { getWeather } from 'src/gRPC/Client/WeatherClient';
+import * as WeatherPb from 'src/gRPC/proto/weather_pb';
 
-class MyWeather extends React.Component<WeatherProps> {
-    componentDidMount() {
-        this.props.weatherRequest("Hakodate")
+class MyWeather extends React.Component<WeatherProps, WeatherState> {
+    constructor(props: WeatherProps) {
+        super(props);
+    
+        this.state = {
+            id: 0,
+            cityName: "",
+            tempMax: 0,
+            tempMin: 0,
+            wind: 0,
+            typeWeather: "",
+            description: ""
+        };
+      }
+
+    async componentDidMount() {
+        const res =  await getWeather("hakodate");
+        const weather: WeatherPb.Weather = await res.result.getWeather();
+        this.setState ({
+            cityName: "函館",
+            tempMax: weather.getTempmax(),
+            tempMin: weather.getTempmin(),
+            wind: weather.getWind(),
+            typeWeather: weather.getType(),
+            description: weather.getDescription()
+        });
     }
+
     public render() {
         const classes = this.props.classes;
         return ( 
@@ -20,7 +47,7 @@ class MyWeather extends React.Component<WeatherProps> {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" color="inherit" className={classes.grow}>
-                        の天気
+                        {this.state.cityName}の天気
                     </Typography>
                     <Button color="inherit" onClick={this.onLogoutSubmit}>Logout</Button>
                 </Toolbar>
@@ -29,42 +56,42 @@ class MyWeather extends React.Component<WeatherProps> {
             <Card className={classes.card}>
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Today's Weather
+                    Today's Weather
                     </Typography>
                     <Typography variant="h5" component="h2">
-                       あああ
+                    {this.state.typeWeather}
                     </Typography>
 
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Max Temp
+                    Max Temp
                     </Typography>
 
                     <Typography variant="h5" component="h2">
-                        あああ
+                    {this.state.tempMax}
                     </Typography>
 
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Min Temp
+                    Min Temp
                     </Typography>
 
                     <Typography variant="h5" component="h2">
-                        あああ
+                    {this.state.tempMin}
                     </Typography>
 
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Wind
+                    Wind
                     </Typography>
 
                     <Typography variant="h5" component="h2">
-                        あああ
+                    {this.state.wind}
                     </Typography>
 
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Description
+                    Description
                     </Typography>
 
                     <Typography variant="h5" component="h2">
-                        あああ
+                    {this.state.description}
                     </Typography>
 
                 </CardContent>

@@ -14,6 +14,8 @@ var global = Function('return this')();
 goog.exportSymbol('proto.proto.user.GetRequest', null, global);
 goog.exportSymbol('proto.proto.user.GetResponse', null, global);
 goog.exportSymbol('proto.proto.user.GetUser', null, global);
+goog.exportSymbol('proto.proto.user.LoginRequest', null, global);
+goog.exportSymbol('proto.proto.user.LoginResponse', null, global);
 goog.exportSymbol('proto.proto.user.PostRequest', null, global);
 goog.exportSymbol('proto.proto.user.PostResponse', null, global);
 goog.exportSymbol('proto.proto.user.PostUser', null, global);
@@ -748,6 +750,317 @@ proto.proto.user.GetResponse.prototype.hasUser = function() {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.proto.user.LoginRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.proto.user.LoginRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.proto.user.LoginRequest.displayName = 'proto.proto.user.LoginRequest';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.proto.user.LoginRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.proto.user.LoginRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.proto.user.LoginRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.proto.user.LoginRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    userid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    password: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.proto.user.LoginRequest}
+ */
+proto.proto.user.LoginRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.proto.user.LoginRequest;
+  return proto.proto.user.LoginRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.proto.user.LoginRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.proto.user.LoginRequest}
+ */
+proto.proto.user.LoginRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserid(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPassword(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.proto.user.LoginRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.proto.user.LoginRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.proto.user.LoginRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.proto.user.LoginRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getUserid();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPassword();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string UserID = 1;
+ * @return {string}
+ */
+proto.proto.user.LoginRequest.prototype.getUserid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.proto.user.LoginRequest.prototype.setUserid = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string Password = 2;
+ * @return {string}
+ */
+proto.proto.user.LoginRequest.prototype.getPassword = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.proto.user.LoginRequest.prototype.setPassword = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.proto.user.LoginResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.proto.user.LoginResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.proto.user.LoginResponse.displayName = 'proto.proto.user.LoginResponse';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.proto.user.LoginResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.proto.user.LoginResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.proto.user.LoginResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.proto.user.LoginResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    cityname: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.proto.user.LoginResponse}
+ */
+proto.proto.user.LoginResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.proto.user.LoginResponse;
+  return proto.proto.user.LoginResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.proto.user.LoginResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.proto.user.LoginResponse}
+ */
+proto.proto.user.LoginResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCityname(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.proto.user.LoginResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.proto.user.LoginResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.proto.user.LoginResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.proto.user.LoginResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getCityname();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string CityName = 1;
+ * @return {string}
+ */
+proto.proto.user.LoginResponse.prototype.getCityname = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.proto.user.LoginResponse.prototype.setCityname = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.proto.user.PostRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
@@ -943,7 +1256,7 @@ proto.proto.user.PostResponse.prototype.toObject = function(opt_includeInstance)
  */
 proto.proto.user.PostResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    token: jspb.Message.getFieldWithDefault(msg, 1, "")
+    cityname: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -982,7 +1295,7 @@ proto.proto.user.PostResponse.deserializeBinaryFromReader = function(msg, reader
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setToken(value);
+      msg.setCityname(value);
       break;
     default:
       reader.skipField();
@@ -1013,7 +1326,7 @@ proto.proto.user.PostResponse.prototype.serializeBinary = function() {
  */
 proto.proto.user.PostResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getToken();
+  f = message.getCityname();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -1024,16 +1337,16 @@ proto.proto.user.PostResponse.serializeBinaryToWriter = function(message, writer
 
 
 /**
- * optional string Token = 1;
+ * optional string CityName = 1;
  * @return {string}
  */
-proto.proto.user.PostResponse.prototype.getToken = function() {
+proto.proto.user.PostResponse.prototype.getCityname = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.proto.user.PostResponse.prototype.setToken = function(value) {
+proto.proto.user.PostResponse.prototype.setCityname = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 

@@ -1,4 +1,4 @@
-FROM  node:10.12.0-slim
+FROM  node:10.15.0-alpine
 
 WORKDIR /client
 COPY ./weather-app .

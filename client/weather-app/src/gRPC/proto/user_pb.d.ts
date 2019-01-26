@@ -49,6 +49,39 @@ export namespace GetUser {
   }
 }
 
+export class LoginRequest {
+  constructor ();
+  getUserid(): string;
+  setUserid(a: string): void;
+  getPassword(): string;
+  setPassword(a: string): void;
+  toObject(): LoginRequest.AsObject;
+  serializeBinary(): Uint8Array;
+  static deserializeBinary: (bytes: {}) => LoginRequest;
+}
+
+export namespace LoginRequest {
+  export type AsObject = {
+    userid: string;
+    password: string;
+  }
+}
+
+export class LoginResponse {
+  constructor ();
+  getCityname(): string;
+  setCityname(a: string): void;
+  toObject(): LoginResponse.AsObject;
+  serializeBinary(): Uint8Array;
+  static deserializeBinary: (bytes: {}) => LoginResponse;
+}
+
+export namespace LoginResponse {
+  export type AsObject = {
+    cityname: string;
+  }
+}
+
 export class PostRequest {
   constructor ();
   getUser(): PostUser;
@@ -66,8 +99,8 @@ export namespace PostRequest {
 
 export class PostResponse {
   constructor ();
-  getToken(): string;
-  setToken(a: string): void;
+  getCityname(): string;
+  setCityname(a: string): void;
   toObject(): PostResponse.AsObject;
   serializeBinary(): Uint8Array;
   static deserializeBinary: (bytes: {}) => PostResponse;
@@ -75,7 +108,7 @@ export class PostResponse {
 
 export namespace PostResponse {
   export type AsObject = {
-    token: string;
+    cityname: string;
   }
 }
 

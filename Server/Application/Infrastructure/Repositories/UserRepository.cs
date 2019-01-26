@@ -20,18 +20,18 @@ namespace Repositories
     public class UserRepository:IUserRepository
     {
 
-        private string connectionString = @"Data Source=127.0.0.1;Initial Catalog=Weather;Connect Timeout=60;Persist Security Info=True;User ID=sa;Password=Test@1234";
+        private string connectionString = @"Data Source=db;Initial Catalog=Weather;Connect Timeout=60;Persist Security Info=True;User ID=sa;Password=Test@1234";
         
         private string tableName = "[Weather].[dbo].[Users]";
         public User FindUserByUserToken(String token)
         {   
             User user = new User();
-            using(var connection = new SqlConnection(connectionString))
+            using(var connection = new SqlConnection(this.connectionString))
             {
                 try {
                     connection.Open();
                     Console.WriteLine("[Start] DB Connection");
-                    string query = $"SELECT * FROM {tableName} WHERE AccessToken = @AccessToken;";
+                    string query = $"SELECT * FROM {this.tableName} WHERE AccessToken = @AccessToken;";
                     Console.WriteLine("[Start] Query Executing");
                     var result = connection.Query<User>(query, new { 
                         AccessToken = token
@@ -54,12 +54,12 @@ namespace Repositories
         public String Login(string uID, string password)
         {   
             User user = new User();
-            using(var connection = new SqlConnection(connectionString))
+            using(var connection = new SqlConnection(this.connectionString))
             {
                 try {
                     connection.Open();
                     Console.WriteLine("[Start] DB Connection");
-                    string query = $"SELECT * FROM {tableName} WHERE Id = @Id;";
+                    string query = $"SELECT * FROM {this.tableName} WHERE Id = @Id;";
                     Console.WriteLine("[Start] Query Executing");
                     var result = connection.Query<User>(query, new { 
                         Id = uID
@@ -89,13 +89,13 @@ namespace Repositories
         {   
             Console.WriteLine("Call CreateUser");
             string token = BuildToken(user.Name, user.CityName);
-            using(var connection = new SqlConnection(connectionString))
+            using(var connection = new SqlConnection(this.connectionString))
             {
                 try
                 {
                     connection.Open();
                     Console.WriteLine("[Start] DB Connection");
-                    string query = $"INSERT INTO {tableName} VALUES (@Id, @CityName, @Name, @Password, @AccessToken);";
+                    string query = $"INSERT INTO {this.tableName} VALUES (@Id, @CityName, @Name, @Password, @AccessToken);";
                     
                     Console.WriteLine("---");
                     Console.WriteLine("UserID:" + user.UserID);

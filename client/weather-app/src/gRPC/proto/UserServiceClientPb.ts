@@ -6,10 +6,13 @@
 
 // GENERATED CODE -- DO NOT EDIT!
 
+
 import * as grpcWeb from 'grpc-web';
 import {
   GetRequest,
   GetResponse,
+  LoginRequest,
+  LoginResponse,
   PostRequest,
   PostResponse,
   } from './user_pb';
@@ -73,6 +76,28 @@ export class UsersClient {
       request,
       metadata || {},
       this.methodInfoPost,
+      callback);
+  }
+
+  methodInfoLogin = new grpcWeb.AbstractClientBase.MethodInfo(
+    LoginResponse,
+    (request: LoginRequest) => {
+      return request.serializeBinary();
+    },
+    LoginResponse.deserializeBinary
+  );
+
+  login(
+    request: LoginRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.Error,
+               response: LoginResponse) => void) {
+    return this.client_.rpcCall(
+      this.hostname_ +
+        '/proto.user.Users/Login',
+      request,
+      metadata || {},
+      this.methodInfoLogin,
       callback);
   }
 

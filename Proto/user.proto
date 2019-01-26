@@ -5,6 +5,7 @@ package proto.user;
 service Users{
     rpc Get (GetRequest) returns (GetResponse) {}
     rpc Post (PostRequest) returns (PostResponse) {}
+    rpc Login (LoginRequest) returns (LoginResponse) {}
 }
 
 message PostUser {
@@ -32,10 +33,19 @@ message GetResponse {
     GetUser User = 1;
 }
 
+message LoginRequest {
+    string UserID = 1;
+    string Password = 2;
+}
+message LoginResponse {
+    string CityName = 1;
+}
+
 message PostRequest {
     PostUser User = 1;
 }
 
 message PostResponse {
-    string Token = 1;
+    // string Token = 1;
+    string CityName = 1;
 }

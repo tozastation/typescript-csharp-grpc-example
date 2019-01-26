@@ -1,17 +1,20 @@
 // import { put, call, takeEvery} from 'redux-saga/effects';
-// import { LoginActionType } from 'src/actions/Login/LoginActionType';
-// import { LoginRequestAction } from 'src/actions/Login/LoginAction';
-// import { loginSucceed, loginFailed } from 'src/actions/Login/LoginActionCreator';
+// import { WeatherActionType } from 'src/actions/Weather/WeatherActionType';
+// import { WeatherRequestAction } from 'src/actions/Weather/WeatherAction';
+// import { weatherSucceed, weatherFailed } from 'src/actions/Weather/WeatherActionCreator';
+// import * as WeatherPb from 'src/gRPC/proto/weather_pb';
+// import { getWeather } from 'src/gRPC/Client/WeatherClient';
 
-// function* WeatherRequest(action: LoginRequestAction) {
-//     const {cityName} = yield call(mockApi); // <- gRPCに変更
-//     if(cityName !== ""){
-//         yield put(loginSucceed(cityName));
+// function* weatherRequest(action: WeatherRequestAction) {
+//     const {res}: {res: WeatherPb.GetResponse} = yield call(getWeather, 'Hakodate'); // <- gRPCに変更
+//     const weather = res.getWeather()
+//     if(weather){
+//         yield put(weatherSucceed(weather.getCityname()));
 //     }else{
-//         yield put(loginFailed());
+//         yield put(weatherFailed());
 //     }
 // }
 
-// export const LoginSaga = [
-//    takeEvery(LoginActionType.LOGIN_REQUEST, loginRequest)
+// export const WeatherSaga = [
+//    takeEvery(WeatherActionType.WEATHER_REQUEST, weatherRequest)
 // ];

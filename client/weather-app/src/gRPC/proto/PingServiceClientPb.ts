@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for proto.weather
+ * @fileoverview gRPC-Web generated client stub for proto.ping
  * @enhanceable
  * @public
  */
@@ -9,11 +9,10 @@
 
 import * as grpcWeb from 'grpc-web';
 import {
-  GetRequest,
-  GetResponse,
- } from './weather_pb';
+  Empty,
+  Pong} from './ping_pb';
 
-export class WeathersClient {
+export class CheckClient {
   client_: grpcWeb.AbstractClientBase;
   hostname_: string;
   credentials_: null | { [index: string]: string; };
@@ -31,25 +30,25 @@ export class WeathersClient {
     this.options_ = options;
   }
 
-  methodInfoGet = new grpcWeb.AbstractClientBase.MethodInfo(
-    GetResponse,
-    (request: GetRequest) => {
+  methodInfoPing = new grpcWeb.AbstractClientBase.MethodInfo(
+    Pong,
+    (request: Empty) => {
       return request.serializeBinary();
     },
-    GetResponse.deserializeBinary
+    Pong.deserializeBinary
   );
 
-  get(
-    request: GetRequest,
+  ping(
+    request: Empty,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.Error,
-               response: GetResponse) => void) {
+               response: Pong) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/proto.weather.Weathers/Get',
+        '/proto.ping.Check/Ping',
       request,
       metadata || {},
-      this.methodInfoGet,
+      this.methodInfoPing,
       callback);
   }
 

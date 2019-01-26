@@ -8,9 +8,9 @@ import { RegistActionType } from 'src/actions/Regist/RegistActionType';
 function* registRequest(action: RegistRequestAction) {
     const {userId, cityName, password, name} = action;
     const {response}: {response: PostResponse} = yield call(postUser, userId, cityName, password, name);
-    const token = response.getToken();
-    if(token !== ""){
-        yield put(registSucceed(token));
+    const city = response.getCityname();
+    if(city){
+        yield put(registSucceed(city));
     }else{
         yield put(registFailed());
     }
