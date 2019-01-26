@@ -15,8 +15,7 @@
     "eject": "react-scripts-ts eject",
     "package": "electron-packager . hoge --platform=win32 --arc=x64 --out=release",
     "electron": "node_modules/.bin/electron .",
-    "dev" : "nf start -p 3000"
-    
+    "dev": "nf start -p 3000"
   },
   "devDependencies": {
     "@material-ui/core": "^3.9.0",
@@ -33,6 +32,7 @@
     "@types/react-redux": "^6.0.12",
     "@types/redux-logger": "^3.0.6",
     "electron": "^4.0.2",
+    "electron-builder": "^20.38.5",
     "electron-packager": "^13.0.1",
     "foreman": "^3.0.1",
     "google-protobuf": "^3.6.1",
