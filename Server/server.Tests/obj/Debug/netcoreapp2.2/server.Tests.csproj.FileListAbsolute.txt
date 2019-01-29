@@ -1,0 +1,4 @@
+/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.Tests/obj/Debug/netcoreapp2.2/server.Tests.csprojAssemblyReference.cache
+/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.Tests/obj/Debug/netcoreapp2.2/server.Tests.csproj.CoreCompileInputs.cache
+/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.Tests/obj/Debug/netcoreapp2.2/server.Tests.AssemblyInfoInputs.cache
+/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.Tests/obj/Debug/netcoreapp2.2/server.Tests.AssemblyInfo.cs
