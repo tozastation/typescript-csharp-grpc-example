@@ -15,7 +15,7 @@ services:
         - ./Mssql/start-up.sh:/start-up.sh
       command: "sh -c '/start-up.sh & /opt/mssql/bin/sqlservr;'"
     grpc:
-      build: ./Server
+      build: ./Server/WeatherApi
       stdin_open: true
       tty: true
       ports:
