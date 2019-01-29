@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+productName: Toza World
+appId: github.com.tozastation
+electronVersion: 4.0.2
