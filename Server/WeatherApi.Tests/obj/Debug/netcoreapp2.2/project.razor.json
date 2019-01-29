@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "/Users/tozastation/go/src/github.com/tozastation/gRPC-Training/Server/server.Tests/server.Tests.csproj",
+  "TargetFramework": "netcoreapp2.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

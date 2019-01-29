@@ -1,11 +1,5 @@
 ﻿<Properties StartupConfiguration="{3D016C95-18DF-4F40-9FA5-A904D75BF14A}|Default">
-  <MonoDevelop.Ide.ItemProperties.Server.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.WeatherApi.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/Application/Domain/Model/DB/DBCurrentWeather.cs">
-    <Files>
-      <File FileName="Server/Application/Domain/Model/DB/DBCurrentWeather.cs" Line="9" Column="11" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.WeatherApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
