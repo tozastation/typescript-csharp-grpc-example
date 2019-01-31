@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -16,6 +16,9 @@
 
   <ItemGroup>
     <Folder Include="ImplementTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherApi\WeatherApi.csproj" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

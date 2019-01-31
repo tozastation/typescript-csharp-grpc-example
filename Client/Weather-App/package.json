@@ -7,6 +7,7 @@
     "react-dom": "^16.7.0",
     "react-scripts-ts": "3.1.0"
   },
+  "homepage": "./",
   "main": "src/electron-starter.js",
   "scripts": {
     "start": "react-scripts-ts start",
@@ -15,7 +16,10 @@
     "eject": "react-scripts-ts eject",
     "package": "electron-packager . hoge --platform=darwin --arch=x64 --out=release",
     "electron": "node_modules/.bin/electron .",
-    "dev": "nf start -p 3000"
+    "dev": "nf start -p 3000",
+    "package:mac": "react-scripts-ts build && electron-builder --mac --x64",
+    "package:windows": "react-scripts-ts build && electron-builder --win --x64",
+    "package:linux": "react-scripts-ts build && electron-builder --linux --x64"
   },
   "devDependencies": {
     "@material-ui/core": "^3.9.0",
@@ -49,10 +53,42 @@
     "typescript": "^3.2.2"
   },
   "build": {
-    "productName": "Toza World",
+    "productName": "TozaWorld",
     "appId": "github.com.tozastation",
+    "files": [
+      "./src/electron-starter.js",
+      "./icon/**/*",
+      "*.js",
+      "build",
+      "node_modules"
+    ],
     "directories": {
       "output": "dist"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "./icon/favicon.icns",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "./icon/favicon.ico",
+      "target": "msi"
     }
   }
 }

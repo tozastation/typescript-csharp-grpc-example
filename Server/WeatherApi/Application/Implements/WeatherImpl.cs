@@ -4,7 +4,7 @@ using Grpc.Core;
 using WeatherApi.Application.Domain.Service.Interface;
 using System;
 
-namespace Implements
+namespace WeatherApi.Application.Implements
 {
     public class WeatherImpl: Weathers.WeathersBase
     {
