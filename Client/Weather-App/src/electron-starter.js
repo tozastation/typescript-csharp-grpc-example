@@ -19,7 +19,15 @@ function createWindow() {
     // and load the index.html of the app.
     //mainWindow.loadURL(`file://${path.join(__dirname, '../../build/index.html')})`); //http://localhost:3000
 
-    mainWindow.loadURL('file://' + __dirname +  '/index.html'); //http://localhost:3000
+    const startUrl =
+    process.env.ELECTRON_START_URL ||
+    url.format({
+      pathname: path.join(__dirname, '../build/index.html'),
+      protocol: 'file:',
+      slashes: true
+    })
+
+    mainWindow.loadURL(startUrl); //http://localhost:3000
 
 
     // Open the DevTools.
