@@ -4,7 +4,7 @@ import LoginFormState from '../Data/LoginFormState';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles, FormControl } from '@material-ui/core';
-import { Styles } from 'src/utils/styles';
+import { Styles } from '../../../utils/styles';
 
 class LoginForm extends React.Component<LoginFormProps,LoginFormState> {
     constructor(props: LoginFormProps) {

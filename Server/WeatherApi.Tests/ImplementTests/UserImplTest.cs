@@ -1,7 +1,5 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 using Moq;
-using System.Threading.Tasks;
 using WeatherApi.Application.Domain.Service.Interface;
 using Proto.User;
 using WeatherApi.Application.Implements;
