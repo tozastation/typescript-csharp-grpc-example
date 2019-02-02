@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux';
-import { registRequest } from 'src/actions/Regist/RegistActionCreator';
+import { registRequest } from '../../actions/Regist/RegistActionCreator';
 import { connect } from 'react-redux';
-import RegistForm from 'src/components/Regist/Layout/RegistForm';
-import ScreenStateAction from 'src/actions/ScreenState/ScreenStateAction';
-import { screenStateToLogin, screenStateToRegist } from 'src/actions/ScreenState/ScreenStateActionCreator';
-import RegistAction from 'src/actions/Regist/RegistAction';
-import { RegistFormDispatchProps } from 'src/components/Regist/Data/RegistFormProps';
+import RegistForm from '../../components/Regist/Layout/RegistForm';
+import ScreenStateAction from '../../actions/ScreenState/ScreenStateAction';
+import { screenStateToLogin, screenStateToRegist } from '../../actions/ScreenState/ScreenStateActionCreator';
+import RegistAction from '../../actions/Regist/RegistAction';
+import { RegistFormDispatchProps } from '../../components/Regist/Data/RegistFormProps';
 
 const mapDispatchToProps = (
   dispatch: Dispatch<RegistAction | ScreenStateAction>

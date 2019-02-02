@@ -1,6 +1,6 @@
-import LoginState from 'src/states/Login/LoginState';
-import LoginAction from 'src/actions/Login/LoginAction';
-import { LoginActionType } from 'src/actions/Login/LoginActionType';
+import LoginState from '../../states/Login/LoginState';
+import LoginAction from '../../actions/Login/LoginAction';
+import { LoginActionType } from '../../actions/Login/LoginActionType';
 
 const initialState: LoginState = {cityName: ""};
 

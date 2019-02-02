@@ -4,7 +4,7 @@ import LoginFormState from '../Data/LoginFormState';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles, FormControl } from '@material-ui/core';
-import { Styles } from 'src/utils/styles';
+import { Styles } from '../../../utils/styles';
 
 class LoginForm extends React.Component<LoginFormProps,LoginFormState> {
     constructor(props: LoginFormProps) {
@@ -22,23 +22,27 @@ class LoginForm extends React.Component<LoginFormProps,LoginFormState> {
           <div>
             <FormControl>
                 <TextField
+                    data-test="user-id"
                     label="UserID"
                     value={this.state.inputUserId}
                     onChange={this.onInputUserIDChange}
                     margin="normal"
                 />
                 <TextField
+                    data-test="password"
                     label="Password"
                     value={this.state.inputPassword}
                     onChange={this.onInputPasswordChange}
                     margin="normal"
                 />
                 <Button 
+                    data-test="signIn-button"
                     onClick={this.onFormSubmit}
                     color="primary"
                     className={classes.button}
                 >ログイン</Button>
                 <Button 
+                    data-test="signUp-button"
                     onClick={this.onRegistSubmit}
                     color="secondary"
                     className={classes.button}

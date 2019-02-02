@@ -4,10 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, IconButton, Button, Card, CardContent, withStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Styles } from 'src/utils/styles';
+import { Styles } from '../../../utils/styles';
 import WeatherState from '../Data/WeatherState';
-import { getWeather } from 'src/gRPC/Client/WeatherClient';
-import * as WeatherPb from 'src/gRPC/proto/weather_pb';
+import { getWeather } from '../../../gRPC/Client/WeatherClient';
+import * as WeatherPb from '../../../gRPC/proto/weather_pb';
 
 class MyWeather extends React.Component<WeatherProps, WeatherState> {
     constructor(props: WeatherProps) {

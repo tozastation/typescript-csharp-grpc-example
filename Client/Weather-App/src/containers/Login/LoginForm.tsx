@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux';
-import LoginAction from 'src/actions/Login/LoginAction';
+import LoginAction from '../../actions/Login/LoginAction';
 import { LoginFormDispatchProps } from 'src/components/Login/Data/LoginFormProps';
-import { loginRequest } from 'src/actions/Login/LoginActionCreator';
+import { loginRequest } from '../../actions/Login/LoginActionCreator';
 import { connect } from 'react-redux';
-import LoginForm from 'src/components/Login/Layout/LoginForm';
-import ScreenStateAction from 'src/actions/ScreenState/ScreenStateAction';
-import {screenStateToLogin, screenStateToRegist, screenStateToHome } from 'src/actions/ScreenState/ScreenStateActionCreator';
+import LoginForm from '../../components/Login/Layout/LoginForm';
+import ScreenStateAction from '../../actions/ScreenState/ScreenStateAction';
+import {screenStateToLogin, screenStateToRegist, screenStateToHome } from '../../actions/ScreenState/ScreenStateActionCreator';
 
 const mapDispatchToProps = (
   dispatch: Dispatch<LoginAction | ScreenStateAction>
