@@ -1,7 +1,7 @@
 # .travis.yml
 language: csharp
-dist: trusty
-dotnet: 2.2.100
+dist: xenial
+dotnet: 2.2.103
 mono: none
 
 solution: Server/WeatherApi.sln
