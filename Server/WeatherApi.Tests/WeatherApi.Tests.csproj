@@ -13,6 +13,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="Moq" Version="4.10.1" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+    <PackageReference Include="Grpc.Core.Testing" Version="1.18.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,14 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeatherApi\WeatherApi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="ImplementTests\UserImplTest.cs">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="ImplementTests\WeatherImplTest.cs">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Compile>
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

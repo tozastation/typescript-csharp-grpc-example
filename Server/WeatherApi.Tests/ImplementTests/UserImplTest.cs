@@ -1,29 +1,60 @@
 ﻿using Xunit;
 using Moq;
 using WeatherApi.Application.Domain.Service.Interface;
+using WeatherApi.Application.Infrastructure.Repositories.Interfaces;
 using Proto.User;
 using WeatherApi.Application.Implements;
+using Grpc.Core.Testing;
+using System;
+using Grpc.Core;
+using System.Threading;
+using Grpc.Core.Utils;
 
 namespace server.Tests.ImplementTests
 {
     public class UserImplTest
     {
+        private Mock<IUserService> userRepoMoq;
+
+        //private String actualToken = "tozastation";
+
+        private String actualCityName = "Hakodate";
+
+        public UserImplTest()
+        {
+            userRepoMoq = new Mock<IUserService>();
+
+            userRepoMoq.Setup(x => x.CreateUser(It.IsAny<PostUser>()))
+            .Returns(actualCityName);
+
+            userRepoMoq.Setup(x => x.LoginUser(It.IsAny<String>(), It.IsAny<String>()))
+            .Returns(actualCityName);
+        }
+
         [Fact]
         public void LoginTest()
-        {
-            string userId = "tozastation";
-            string password = "password";
-            string expected = "token";
+        { 
 
-            var serviceMock = new Mock<IUserService>();
-            serviceMock.Setup(x => x.LoginUser(userId, password))
-                .Returns(expected);
+            var implement = new UserImpl(userRepoMoq.Object);
 
-            var implement = new UserImpl(serviceMock.Object);
-           
-            var result = implement.Login(new LoginRequest(), null);
+            var fakeServerCallContext = TestServerCallContext.Create(
+                "fooMethod",
+                null, 
+                DateTime.UtcNow.AddHours(1), 
+                new Metadata(), 
+                CancellationToken.None, 
+                "127.0.0.1", 
+                null, 
+                null, 
+                (metadata) => TaskUtils.CompletedTask, 
+                () => new WriteOptions(),
+                 (writeOptions) => { }
+                );
 
-            Assert.IsType<LoginResponse>(result);
+            var result = implement.Login(new LoginRequest(), fakeServerCallContext);
+
+            //Assert.IsType<LoginResponse>(result);
+            Assert.Equal(result.Result.CityName, actualCityName);
         }
     }
 }
