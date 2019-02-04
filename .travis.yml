@@ -4,9 +4,12 @@ dist: trusty
 dotnet: 2.2.0
 mono: none
 
+solution: Server/WeatherApi.sln
+
 install:
 - dotnet restore
 
 script:
+- cd Server
 - dotnet build
 - dotnet test WeatherApi.Tests/WeatherApi.Tests.csproj
