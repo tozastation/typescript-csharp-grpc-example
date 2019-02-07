@@ -19,10 +19,13 @@ namespace WeatherApi.Application.Implements
         }
         public override Task<GetResponse> Get(GetRequest request, ServerCallContext context)
         {
+            GrpcEnvironment.Logger.Info("[START] RPC is Called from Client");
             string cityName = request.CityName;
+            GrpcEnvironment.Logger.Info("[INPUT] cityName=" + cityName);
             var weathers = this.service.FindCurrentWeatherByCityName(cityName);
             var response = new GetResponse();
             response.Weather = weathers[0];
+            GrpcEnvironment.Logger.Info("[END] RPC is Called from Client");
             return Task.FromResult(response);
         }
     }

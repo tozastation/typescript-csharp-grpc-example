@@ -7,6 +7,7 @@ using Proto.User;
 using WeatherApi.Application.Implements;
 using WeatherApi.Application.Domain.Service;
 using Proto.Ping;
+using Grpc.Core.Logging;
 
 namespace Application
 {
@@ -16,6 +17,7 @@ namespace Application
         public static SqlHandler sqlHandler;
         public static void Main(string[] args)
         {
+            GrpcEnvironment.SetLogger(new ConsoleLogger());
             const int Port = 5000;
             var weatherImpl = new WeatherImpl(new WeatherService());
             var userImpl = new UserImpl(new UserService());
@@ -31,8 +33,9 @@ namespace Application
             };
             server.Start();
 
-            Console.WriteLine("Tozawa server listening on port " + Port);
-            Console.WriteLine("Press any key to stop the server...");
+            GrpcEnvironment.Logger.Info("[START] Tozawa server listening on port " + Port);
+            GrpcEnvironment.Logger.Info("[Other] Press any key to stop the server...");
+           
             Console.Read();
 
             server.ShutdownAsync().Wait();
