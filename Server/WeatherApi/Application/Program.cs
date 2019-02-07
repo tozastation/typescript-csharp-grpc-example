@@ -8,6 +8,8 @@ using WeatherApi.Application.Implements;
 using WeatherApi.Application.Domain.Service;
 using Proto.Ping;
 using Grpc.Core.Logging;
+using Grpc.Core.Interceptors;
+using WeatherApi.Application.Interceptors;
 
 namespace Application
 {
@@ -25,14 +27,13 @@ namespace Application
             Server server = new Server
             {
                 Services = { 
-                    Weathers.BindService(weatherImpl),
+                    Weathers.BindService(weatherImpl).Intercept(new AuthInterceptor()),
                     Check.BindService(pingImpl),
                     Users.BindService(userImpl)
                 },
                 Ports = { new ServerPort("0.0.0.0", Port, ServerCredentials.Insecure) }
             };
             server.Start();
-
             GrpcEnvironment.Logger.Info("[START] Tozawa server listening on port " + Port);
             GrpcEnvironment.Logger.Info("[Other] Press any key to stop the server...");
            

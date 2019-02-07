@@ -39,4 +39,7 @@
   <ItemGroup>
     <Content Remove="server.Tests\obj\project.assets.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\Interceptors\" />
+  </ItemGroup>
 </Project>
