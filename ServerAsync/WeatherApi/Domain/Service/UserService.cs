@@ -69,7 +69,7 @@ namespace WeatherApi.Domain.Service
 
         private string _BuildToken(string name, string cityName)
         {
-            string text = File.ReadAllText(@"./Application/Infrastructure/Repositories/Secret/private-key.pem", Encoding.UTF8);
+            string text = File.ReadAllText(@"./Domain/Service/Secret/private-key.pem", Encoding.UTF8);
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(text));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
